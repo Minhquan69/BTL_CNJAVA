@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="290.0" prefWidth="170.0" style="-fx-border-color: #000; -fx-background-color: #D4F7FF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pj.Controller.ItemController">
+    <children>
+        <VBox alignment="TOP_CENTER" layoutX="5.0" layoutY="68.0" prefHeight="200.0" prefWidth="100.0" spacing="3.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+            <children>
+            <AnchorPane VBox.vgrow="ALWAYS">
+               <children>
+                  <BorderPane layoutX="4.0">
+                     <center>
+                            <ImageView fx:id="imageItem" fitHeight="152.0" fitWidth="149.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                                <image>
+                                    <Image url="@../image/item/doAn/Chuoi.jpg" />
+                                </image>
+                            </ImageView>
+                     </center>
+                  </BorderPane>
+               </children>
+            </AnchorPane>
+                <Line endX="57.292877197265625" endY="-0.20710982382297516" startX="-100.0" />
+                <Label fx:id="nameItem" alignment="CENTER" prefHeight="26.0" prefWidth="156.0" text="Chuối">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Label>
+                <HBox prefHeight="1.0" prefWidth="158.0">
+                    <children>
+                        <Label prefHeight="12.0" prefWidth="23.0" text="Giá:">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets left="5.0" />
+                            </HBox.margin>
+                        </Label>
+                        <Label fx:id="priceItem" prefHeight="20.0" prefWidth="120.0" text="100000 đồng">
+                            <HBox.margin>
+                                <Insets left="10.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+                <ImageView fx:id="starItem" fitHeight="20.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../image/item/danhGia/5sao.gif" />
+                    </image>
+                </ImageView>
+                <Line endX="45.900020599365234" startX="-100.0" />
+                <Button fx:id="buttonThemGioHang" mnemonicParsing="false" onAction="#onThemGioHang" prefHeight="36.0" prefWidth="158.0" styleClass="ButtonThemGioHang" stylesheets="@../css/item.css" text="Thêm vào giỏ hàng">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Button>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

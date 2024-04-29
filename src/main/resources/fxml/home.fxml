@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.*?>
+<?import java.lang.String?>
+<ScrollPane fx:id="scrollPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pj.Controller.HomeController">
+    <content>
+        <VBox prefHeight="700.0" prefWidth="1190.0">
+            <children>
+                <AnchorPane prefHeight="300.0" prefWidth="1190.0" styleClass="ColorVangNhat" stylesheets="@../css/home.css">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" layoutX="495.0" layoutY="14.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0" styleClass="ColorVangDam" stylesheets="@../css/home.css" AnchorPane.bottomAnchor="240.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="15.0">
+                            <padding>
+                                <Insets left="50.0" />
+                            </padding>
+                            <children>
+                                <HBox alignment="CENTER_LEFT" prefHeight="46.0" prefWidth="186.0" spacing="5.0">
+                                    <children>
+                                        <ImageView fx:id="avatar" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../image/home/avatar.png" />
+                                            </image>
+                                        </ImageView>
+                                        <Label fx:id="nameUser" text=" ">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                            <HBox.margin>
+                                                <Insets />
+                                            </HBox.margin>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <Line endX="-96.89236450195312" endY="-9.799525260925293" startX="-96.89237976074219" startY="-46.892417907714844" />
+                                <Button fx:id="gioHangButton" mnemonicParsing="false" onAction="#onGioHangButton" prefHeight="35.0" prefWidth="100.0" styleClass="button1" stylesheets="@../css/home.css" text="Giỏ hàng">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Button>
+                                <Button fx:id="hoaDonButton" mnemonicParsing="false" onAction="#onHoaDon" prefHeight="35.0" prefWidth="100.0" styleClass="button1" stylesheets="@../css/home.css" text="Hóa đơn">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Button>
+                                <Button fx:id="khieuNaiButton" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" styleClass="button1" stylesheets="@../css/home.css" text="Khiếu nại">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Button>
+                                <AnchorPane prefHeight="46.0" prefWidth="410.0" />
+                                <Button fx:id="dangXuatButton" mnemonicParsing="false" onAction="#onDangXuat" prefHeight="35.0" prefWidth="100.0" stylesheets="@../css/home.css" text="Đăng xuất">
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                    <styleClass>
+                                        <String fx:value="button1" />
+                                        <String fx:value="radius2" />
+                                    </styleClass>
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="exitButton" mnemonicParsing="false" onAction="#onThoat" prefHeight="30.0" prefWidth="54.0" styleClass="buttonExit" stylesheets="@../css/home.css" text="Thoát">
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </Button>
+                            </children>
+                        </HBox>
+                        <TextField fx:id="timKiemField" layoutX="521.0" layoutY="138.0" prefHeight="40.0" prefWidth="564.0" promptText="Bạn muốn tìm gì?" styleClass="search" stylesheets="@../css/home.css" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="326.0" AnchorPane.topAnchor="150.0">
+                            <font>
+                                <Font name="Arial Bold" size="14.0" />
+                            </font>
+                        </TextField>
+                        <Button fx:id="timKiemButton" layoutX="873.0" layoutY="155.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="72.0" styleClass="buttonSearch" stylesheets="@../css/home.css" text="Tìm kiếm" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="12.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                    </children>
+                </AnchorPane>
+                <AnchorPane prefHeight="400.0" prefWidth="1190.0" styleClass="ColorXanhDuongNhat" stylesheets="@../css/home.css" VBox.vgrow="ALWAYS">
+                    <children>
+                        <VBox layoutX="-15.0" prefHeight="200.0" prefWidth="100.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <HBox prefHeight="118.0" prefWidth="391.0" spacing="10.0" styleClass="ThanhPhanLoai" stylesheets="@../css/home.css">
+                                    <VBox.margin>
+                                        <Insets left="400.0" right="400.0" top="20.0" />
+                                    </VBox.margin>
+                                    <children>
+                                        <Button fx:id="PhoneButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#onPhone" prefHeight="100.0" prefWidth="100.0" styleClass="button2" stylesheets="@../css/home.css" text="Điện Thoại">
+                                            <HBox.margin>
+                                                <Insets left="22.0" top="10.0" />
+                                            </HBox.margin>
+                                            <graphic>
+                                                <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../image/home/dt.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                            </cursor>
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Line endX="-99.99999237060547" endY="91.29291534423828" startX="-100.0">
+                                            <HBox.margin>
+                                                <Insets bottom="10.0" top="10.0" />
+                                            </HBox.margin>
+                                        </Line>
+                                        <Button fx:id="TabletButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#onTablet" prefHeight="100.0" prefWidth="100.0" styleClass="button2" stylesheets="@../css/home.css" text="Tablet">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                            </cursor>
+                                            <graphic>
+                                                <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../image/home/tablet.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Line endX="-99.99999237060547" endY="91.29291534423828" startX="-100.0">
+                                            <HBox.margin>
+                                                <Insets top="10.0" />
+                                            </HBox.margin>
+                                        </Line>
+                                        <Button fx:id="phuKienButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#onPhuKien" prefHeight="100.0" prefWidth="100.0" styleClass="button2" stylesheets="@../css/home.css" text="Phụ Kiện">
+                                            <HBox.margin>
+                                                <Insets right="20.0" top="10.0" />
+                                            </HBox.margin>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                            </cursor>
+                                            <graphic>
+                                                <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../image/home/tainghe.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                    </children>
+                                </HBox>
+                                <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="NenHienThiSanPham" stylesheets="@../css/home.css" VBox.vgrow="ALWAYS">
+                                    <VBox.margin>
+                                        <Insets left="100.0" right="100.0" />
+                                    </VBox.margin>
+                                    <padding>
+                                        <Insets left="10.0" />
+                                    </padding>
+                                    <children>
+                                        <GridPane fx:id="gridPane" layoutX="32.0" layoutY="31.0" AnchorPane.leftAnchor="10.0">
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                        </GridPane>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </VBox>
+                    </children>
+                </AnchorPane>
+            </children>
+        </VBox>
+    </content>
+</ScrollPane>

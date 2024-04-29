@@ -1,0 +1,75 @@
+// NỀN TRÊN
+.background1 {
+    -fx-background-color:   #FAF097;
+}
+
+// NỀN THÔNG TIN USER
+.background2 {
+    -fx-background-color:   #FFD272;
+    -fx-background-radius: 20;
+}
+
+// THANH TÌM KIẾM
+.search {
+    -fx-background-radius: 30;
+}
+
+// BUTTON TÌM KIẾM
+.buttonSearch {
+    -fx-background-color:  #11ADD0;
+    -fx-background-radius: 30;
+}
+
+.buttonSearch:hover {
+    -fx-background-color:  #68BDD0;
+}
+
+.buttonSearch:pressed {
+    -fx-background-color:  #11ADD0;
+}
+
+// BUTTON QUAY LẠI
+.buttonQL {
+    -fx-background-color:  #FA8E4F;
+    -fx-background-radius: 20;
+}
+
+.buttonQL:hover {
+    -fx-background-color:  #FFB286;
+
+}
+
+.buttonQL:pressed {
+    -fx-background-color: #FA8E4F;
+}
+
+// NỀN DƯỚI
+.background3 {
+    -fx-background-color: #B6DDDA;
+}
+
+// NỀN TỔNG TIỀN
+.background4 {
+    -fx-background-color: #FFF7D9;
+    -fx-background-radius: 40;
+}
+
+// BUTTON THANH TOÁN
+.buttonThanhToan {
+    -fx-background-color:  #65D05E;
+    -fx-background-radius: 30;
+}
+
+.buttonThanhToan:hover {
+    -fx-background-color:  #BED59A;
+}
+
+.buttonThanhToan:pressed {
+    -fx-background-color:  #65D05E;
+}
+
+// NỀN CHỨA SẢN PHẨM
+.background5 {
+    -fx-background-radius: 30;
+    -fx-background-color:  #FBE7D3;
+}

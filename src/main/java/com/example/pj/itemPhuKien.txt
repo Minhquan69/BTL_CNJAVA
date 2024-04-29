@@ -1,0 +1,9 @@
+/image/item/PhuKien/airpod2.jpg,Airpod 2,99000,/image/item/danhGia/5sao.gif,C1
+/image/item/PhuKien/airpod3.jpg,Airpod 3,200000,/image/item/danhGia/5sao.gif,C2
+/image/item/PhuKien/airpodpro.jpg,AirPod Pro,40000,/image/item/danhGia/5sao.gif,C3
+/image/item/PhuKien/sac5w.jpg,Sạc 5w,15000,/image/item/danhGia/5sao.gif,c4
+/image/item/PhuKien/saciphone20w.jpg,Sạc 20W,300000,/image/item/danhGia/5sao.gif,c5
+/image/item/PhuKien/sactypeC.jpg,Cáp Sạc Type C,78000,/image/item/danhGia/5sao.gif,c6
+/image/item/PhuKien/tainghesony.jpg,Tai Nghe Sony,150000,/image/item/danhGia/5sao.gif,c7
+/image/item/PhuKien/sacjip.jpg,Sạc Iphone,120000,/image/item/danhGia/5sao.gif,c8
+/image/item/PhuKien/sacduphong.jpg,Sạc Dự Phòng,120000,/image/item/danhGia/5sao.gif,c9

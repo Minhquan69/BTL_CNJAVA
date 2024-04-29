@@ -1,0 +1,33 @@
+/image/item/Phone/XR.jpg,Iphone XR,50000,/image/item/danhGia/5sao.gif,a1
+/image/item/Phone/11prm.jpg,Iphone 11PRM,40000,/image/item/danhGia/5sao.gif,a2
+/image/item/Phone/ip12.jpg,Iphone 12,60000,/image/item/danhGia/5sao.gif,a3
+/image/item/Phone/ip13.jpg,Iphone 13,100000,/image/item/danhGia/5sao.gif,a4
+/image/item/Phone/15prm.jpg,Iphone 15PRM,40000,/image/item/danhGia/5sao.gif,a5
+/image/item/Phone/poco40.jpg,Poco 40,60000,/image/item/danhGia/5sao.gif,a6
+/image/item/Phone/ssS21.jpg,Samsung S21,100000,/image/item/danhGia/5sao.gif,a7
+/image/item/PhuKien/airpod2.jpg,Airpod 2,99000,/image/item/danhGia/5sao.gif,C1
+/image/item/PhuKien/airpod3.jpg,Airpod 3,200000,/image/item/danhGia/5sao.gif,C2
+/image/item/PhuKien/airpodpro.jpg,AirPod Pro,40000,/image/item/danhGia/5sao.gif,C3
+/image/item/PhuKien/sac5w.jpg,Sạc 5w,15000,/image/item/danhGia/5sao.gif,c4
+/image/item/PhuKien/saciphone20w.jpg,Sạc 20W,300000,/image/item/danhGia/5sao.gif,c5
+/image/item/PhuKien/sactypeC.jpg,Cáp Sạc Type C,78000,/image/item/danhGia/5sao.gif,c6
+/image/item/PhuKien/tainghesony.jpg,Tai Nghe Sony,150000,/image/item/danhGia/5sao.gif,c7
+/image/item/PhuKien/sacjip.jpg,Sạc Iphone,120000,/image/item/danhGia/5sao.gif,c8
+/image/item/PhuKien/sacduphong.jpg,Sạc Dự Phòng,120000,/image/item/danhGia/5sao.gif,c9
+/image/item/Tablet/IpadAir4.jpg,Ipad Air 4,12000,/image/item/danhGia/5sao.gif,b9
+/image/item/Phone/15prm.jpg,Iphone 15PRM,80000,/image/item/danhGia/5sao.gif,a5
+/image/item/Phone/13prm.jpg,Iphone 13PRM,70000,/image/item/danhGia/5sao.gif,a8
+/image/item/Phone/ip13.jpg,Iphone 13,100000,/image/item/danhGia/5sao.gif,a4
+/image/item/Tablet/kindle.jpg,Kindel,14000,/image/item/danhGia/5sao.gif,b3
+/image/item/PhuKien/sacduphong.jpg,Sạc Dự Phòng,120000,/image/item/danhGia/5sao.gif,c9
+/image/item/PhuKien/sactypeC.jpg,Cáp Sạc Type C,78000,/image/item/danhGia/5sao.gif,c6
+/image/item/Phone/poco40.jpg,Xiaomi Poco40,10000,/image/item/danhGia/5sao.gif,a6
+/image/item/Phone/xiaomiNote12.jpg,Xiaomi Note8,15000,/image/item/danhGia/5sao.gif,a8
+/image/item/Tablet/ipadgen10.jpg,Ipad Gen 10,18000,/image/item/danhGia/5sao.gif,b1
+/image/item/Tablet/ipadPro11.jpg,Ipad Pro M1,15000,/image/item/danhGia/5sao.gif,b2
+/image/item/Tablet/kindle.jpg,Kindel,14000,/image/item/danhGia/5sao.gif,b3
+/image/item/Tablet/xiaomipad6.jpg,Xiaomi Pad 6,17000,/image/item/danhGia/5sao.gif,b4
+/image/item/Tablet/ipadProM2.jpg,Ipad Pro M2,15000,/image/item/danhGia/5sao.gif,b5
+/image/item/Tablet/lenovotabm10.jpg,Lenovo Tab M10,25000,/image/item/danhGia/5sao.gif,b6
+/image/item/Tablet/nokiaT21.jpg,Nokia Tab 21,14000,/image/item/danhGia/5sao.gif,b7
+/image/item/Tablet/tabs9.jpg,Samsung Tab S9,27000,/image/item/danhGia/5sao.gif,b8
