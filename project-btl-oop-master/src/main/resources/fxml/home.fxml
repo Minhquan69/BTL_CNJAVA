@@ -70,7 +70,13 @@
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
                                 </Button>
-                                <AnchorPane prefHeight="46.0" prefWidth="410.0" />
+                                <AnchorPane prefHeight="46.0" prefWidth="410.0">
+                           <children>
+                              <Button fx:id="btnDung" layoutY="10.0" mnemonicParsing="false" onAction="#pauseMusic" text="Dừng" />
+                              <Button fx:id="btnTiepTuc" layoutX="60.0" layoutY="10.0" mnemonicParsing="false" onAction="#resumeMusic" text="Tiếp tục" />
+                              <Button fx:id="btnTatNhac" layoutX="137.0" layoutY="10.0" mnemonicParsing="false" onAction="#stopMusic" text="Tắt nhạc" />
+                              <Button fx:id="btnBatNhac" layoutX="205.0" layoutY="10.0" mnemonicParsing="false" onAction="#startMusic" text="Bật nhạc" />
+                           </children></AnchorPane>
                                 <Button fx:id="dangXuatButton" mnemonicParsing="false" onAction="#onDangXuat" prefHeight="35.0" prefWidth="100.0" stylesheets="@../css/home.css" text="Đăng xuất">
                                     <cursor>
                                         <Cursor fx:constant="HAND" />

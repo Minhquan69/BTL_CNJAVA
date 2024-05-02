@@ -1,4 +1,5 @@
 package com.example.pj.Controller;
+
 import com.example.pj.Models.Item;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,16 +13,22 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import javax.sound.sampled.*;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class HomeController implements Initializable {
+public class HomeController extends Thread implements Initializable {
 
     @FXML
     private ImageView avatar;
@@ -64,7 +71,14 @@ public class HomeController implements Initializable {
 
     @FXML
     private TextField timKiemField;
-    private static final String MUSIC_FILE = "E:\\Test\\";
+    @FXML
+    private Button btnDung;
+    @FXML
+    private Button btnTiepTuc;
+    @FXML
+    private Button btnTatNhac;
+
+    private static final String MUSIC_FILE = "E:\\Test\\progresbar.mp3";
     //TẠO MỘT DANH SÁCH CÁC SẢN PHẨM ĐƯỢC THÊM VÀO GIỎ HÀNG
     public static List<Item> itemsGioHang = new ArrayList<>();
     public static List<Item> itemAll = new ArrayList<>();
@@ -72,9 +86,6 @@ public class HomeController implements Initializable {
     public static final String FILE_PATHH = "E:\\btllll\\project-btl-oop-master\\src\\main\\java\\com\\example\\pj\\itemAll.txt";
     //PHƯƠNG THỨC TRẢ VỀ DANH SÁCH CHỨA CÁC ITEM
     private static final String FILE_PATH = "E:\\btllll\\project-btl-oop-master\\src\\main\\java\\com\\example\\pj\\itemsHome.txt";
-
-
-
 
 
     public List<Item> taoDS() {
@@ -95,6 +106,7 @@ public class HomeController implements Initializable {
         }
         return ls;
     }
+
     public static List<Item> taoToanBoDS() {
         List<Item> lss = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(FILE_PATHH))) {
@@ -114,9 +126,6 @@ public class HomeController implements Initializable {
         return lss;
     }
 
-
-
-
     int column = 0;
     int row = 1;
 
@@ -124,13 +133,24 @@ public class HomeController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
 
+        try {
+            clip = AudioSystem.getClip();
+            AudioInputStream inputStream = AudioSystem.getAudioInputStream(musicFile);
+            clip.open(inputStream);
+
+        } catch (IOException | UnsupportedAudioFileException | LineUnavailableException  e) {
+            e.printStackTrace();
+        }
 
 
 
+        Thread thread = new Thread(this);
+        thread.start();
 
         itemAll.addAll(taoToanBoDS());
 
         List<Item> itemsGoiY = new ArrayList<>(taoDS());
+
 
         try {
             for (Item item : itemsGoiY) {
@@ -151,10 +171,6 @@ public class HomeController implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-
-
-
 
 
     }
@@ -212,24 +228,24 @@ public class HomeController implements Initializable {
         String searchText = timKiemField.getText().toLowerCase(); // Lấy giá trị từ trường tìm kiếm
 
 
-for (var e : itemAll){
-    if (e.getItemName().toLowerCase().trim().equals(searchText)){
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/item.fxml"));
-        AnchorPane anchorPane = fxmlLoader.load();
-        ItemController itemController = fxmlLoader.getController();
-        itemController.setData(e);
+        for (var e : itemAll) {
+            if (e.getItemName().toLowerCase().trim().equals(searchText)) {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/item.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+                ItemController itemController = fxmlLoader.getController();
+                itemController.setData(e);
 
-        Stage stage = new Stage();
-        stage.initModality(Modality.APPLICATION_MODAL); // Đặt chế độ modal
-        stage.setResizable(false);
-        stage.setScene(new Scene(anchorPane)); // Sử dụng anchorPane đã load
-        stage.show();
+                Stage stage = new Stage();
+                stage.initModality(Modality.APPLICATION_MODAL); // Đặt chế độ modal
+                stage.setResizable(false);
+                stage.setScene(new Scene(anchorPane)); // Sử dụng anchorPane đã load
+                stage.show();
 
-        return;
+                return;
 
-    }
+            }
 
-}
+        }
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Thông báo");
         alert.setHeaderText(null);
@@ -260,6 +276,71 @@ for (var e : itemAll){
         stage.setScene(scene);
         stage.show();
     }
+
+
+    private File musicFile = new File("E:\\Test\\progresbar.au");
+    private boolean isRunning = true;
+    private Clip clip;
+
+
+
+    @Override
+    public void run() {
+        try {
+            clip = AudioSystem.getClip();
+            AudioInputStream inputStream = AudioSystem.getAudioInputStream(musicFile);
+            clip.open(inputStream);
+            clip.start();
+
+            while (isRunning && clip.getMicrosecondPosition() < clip.getMicrosecondLength()) {
+                Thread.sleep(10);
+            }
+
+            clip.stop();
+            clip.close();
+            inputStream.close();
+        } catch (IOException | UnsupportedAudioFileException | LineUnavailableException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void pauseMusic() {
+        if (clip != null && clip.isRunning()) {
+            clip.stop();
+        }
+    }
+
+    public void resumeMusic() {
+        if (clip != null && !clip.isRunning()) {
+            long currentPosition = clip.getMicrosecondPosition();
+            clip.setMicrosecondPosition(currentPosition);
+            clip.start();
+        }
+    }
+
+    public void stopMusic() {
+        isRunning = false;
+        if (clip != null) {
+            clip.stop();
+            clip.close();
+        }
+    }
+
+        public void startMusic() {
+            if (clip != null && clip.isOpen()) {
+                clip.stop();
+                clip.close();
+            }
+
+            try {
+                AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicFile);
+                clip = AudioSystem.getClip();
+                clip.open(audioInput);
+                clip.start();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
 
 
 }
