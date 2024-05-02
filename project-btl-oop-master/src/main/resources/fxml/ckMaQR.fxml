@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="278.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pj.Controller.CKMaQRController">
+    <children>
+        <ImageView fx:id="imageView" fitHeight="212.0" fitWidth="284.0" layoutX="74.0" pickOnBounds="true" preserveRatio="true" />
+        <Button fx:id="btnClose" layoutX="193.0" layoutY="230.0" mnemonicParsing="false" onAction="#closePopup" text="Close" />
+    </children>
+</AnchorPane>

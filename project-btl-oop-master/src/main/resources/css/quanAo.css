@@ -1,0 +1,55 @@
+// NỀN TRÊN
+.background1 {
+    -fx-background-color:   #FAF097;
+}
+
+// NỀN DƯỚI
+.background3 {
+    -fx-background-color: #B6DDDA;
+}
+
+// NỀN TIÊU ĐỀ
+.tieude {
+    -fx-background-color:   #FFD272;
+    -fx-background-radius: 30;
+}
+
+// NỀN HIỂN THỊ SẢN PHẨM
+.NenHienThiSanPham {
+    -fx-background-color:  #FBE7D3;
+    -fx-background-radius: 50;
+}
+
+// BUTTON QUAY LẠI
+.buttonQL {
+    -fx-background-color:  #FA8E4F;
+    -fx-background-radius: 20;
+}
+
+.buttonQL:hover {
+    -fx-background-color:  #FFB286;
+
+}
+
+.buttonQL:pressed {
+    -fx-background-color: #FA8E4F;
+}
+
+// BUTTON TÌM KIẾM
+.buttonSearch {
+    -fx-background-color:  #11ADD0;
+    -fx-background-radius: 30;
+}
+
+.buttonSearch:hover {
+    -fx-background-color:  #68BDD0;
+}
+
+.buttonSearch:pressed {
+    -fx-background-color:  #11ADD0;
+}
+
+// THANH TÌM KIẾM
+.search {
+    -fx-background-radius: 30;
+}

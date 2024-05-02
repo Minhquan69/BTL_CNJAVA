@@ -1,0 +1,14 @@
+// BUTTON THÊM VÀO GIỎ HÀNG
+.ButtonThemGioHang {
+    -fx-background-color: #e34f2e;
+    -fx-font-size: 16;
+    -fx-background-radius: 10;
+}
+
+.ButtonThemGioHang:hover {
+    -fx-background-color: #e46957;
+}
+
+.ButtonThemGioHang:pressed {
+    -fx-background-color: #e34f2e;
+}

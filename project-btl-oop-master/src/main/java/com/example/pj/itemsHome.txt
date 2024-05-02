@@ -1,0 +1,9 @@
+/image/item/Tablet/IpadAir4.jpg,Ipad Air 4,12000,/image/item/danhGia/5sao.gif,b9
+/image/item/Phone/15prm.jpg,Iphone 15PRM,80000,/image/item/danhGia/5sao.gif,a5
+/image/item/Phone/13prm.jpg,Iphone 13PRM,70000,/image/item/danhGia/5sao.gif,a8
+/image/item/Phone/ip13.jpg,Iphone 13,100000,/image/item/danhGia/5sao.gif,a4
+/image/item/Tablet/kindle.jpg,Kindel,14000,/image/item/danhGia/5sao.gif,b3
+/image/item/PhuKien/sacduphong.jpg,Sạc Dự Phòng,120000,/image/item/danhGia/5sao.gif,c9
+/image/item/PhuKien/sactypeC.jpg,Cáp Sạc Type C,78000,/image/item/danhGia/5sao.gif,c6
+/image/item/Phone/poco40.jpg,Xiaomi Poco40,10000,/image/item/danhGia/5sao.gif,a6
+/image/item/Phone/xiaomiNote12.jpg,Xiaomi Note8,15000,/image/item/danhGia/5sao.gif,a8

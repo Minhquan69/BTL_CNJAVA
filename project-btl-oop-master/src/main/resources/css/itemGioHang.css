@@ -1,0 +1,36 @@
+// NỀN CỦA CẢNH
+.background {
+    -fx-background-color:  #FBE7D3;
+}
+
+// BUTTON TĂNG GIẢM
+.ButtonTangGiam {
+    -fx-background-color: #FFCC74;
+    -fx-background-radius: 50;
+    -fx-border-radius: 50;
+    -fx-border-color:  #CDCDCD;
+}
+
+.ButtonTangGiam:hover {
+    -fx-background-color: #F1D3A3;
+}
+
+.ButtonTangGiam:pressed {
+    -fx-background-color: #FFCC74;
+}
+
+// BUTTON XÓA
+.buttonXoa {
+    -fx-background-radius: 20;
+    -fx-background-color: #F64646;
+    -fx-border-radius: 20;
+    -fx-border-color: #EE8484;
+}
+
+.buttonXoa:hover {
+    -fx-background-color: #EE8484;
+}
+
+.buttonXoa:pressed {
+    -fx-background-color: #F64646;
+}

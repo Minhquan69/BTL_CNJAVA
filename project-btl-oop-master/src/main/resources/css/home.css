@@ -1,0 +1,101 @@
+// VÀNG NHẠT
+.ColorVangNhat {
+    -fx-background-color:   #FAF097;
+}
+
+//VÀNG ĐẬM
+.ColorVangDam {
+    -fx-background-color:   #FFD272;
+}
+
+// BUTTON TRÊN CÙNG CẠNH AVATAR
+.button1 {
+    -fx-background-color:  #FA8E4F;
+    -fx-background-radius: 10;
+}
+
+.button1:hover {
+    -fx-background-color:  #FFB286;
+
+}
+
+.button1:pressed {
+    -fx-background-color: #FA8E4F;
+}
+
+// THANH TÌM KIẾM
+.search {
+    -fx-background-radius: 30;
+}
+
+.search:hover {
+    -fx-background-color:  #FDFDFD;
+}
+
+//BUTTON TÌM KIẾM
+.buttonSearch {
+    -fx-background-color:  #11ADD0;
+    -fx-background-radius: 30;
+}
+
+.buttonSearch:hover {
+    -fx-background-color:  #68BDD0;
+}
+
+.buttonSearch:pressed {
+    -fx-background-color:  #11ADD0;
+}
+
+// MÀU XANH DƯƠNG NHẠT
+.ColorXanhDuongNhat {
+    -fx-background-color: #B6DDDA;
+}
+
+// MÀU DA
+.ColorMauDa {
+    -fx-background-color: #FFF7D9;
+}
+
+// THANH PHÂN LOẠI
+.ThanhPhanLoai {
+    -fx-background-color: #FFF7D9;
+    -fx-background-radius: 30;
+}
+
+// BUTTON PHÂN LOẠI
+.button2 {
+    -fx-background-color:  null;
+    -fx-background-radius: 20;
+}
+
+.button2:hover {
+    -fx-background-color:  #E5A750;
+}
+
+.button2:pressed {
+    -fx-background-color:  #FFF7D9;
+}
+
+//MÀU TRÀ SỮA
+.ColorTraSua {
+    -fx-background-color:  #FBE7D3;
+}
+
+// NỀN HIỂN THỊ SẢN PHẨM
+.NenHienThiSanPham {
+    -fx-background-color:  #FBE7D3;
+    -fx-background-radius: 30;
+}
+
+// BUTTON EXIT
+.buttonExit {
+    -fx-background-color:  #FF7546;
+}
+
+.buttonExit:hover {
+    -fx-background-color:  #B42E02;
+}
+
+.buttonExit:pressed {
+    -fx-background-color:  #FF7546;
+}
