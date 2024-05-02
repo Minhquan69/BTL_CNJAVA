@@ -290,15 +290,13 @@ public class HomeController extends Thread implements Initializable {
             clip = AudioSystem.getClip();
             AudioInputStream inputStream = AudioSystem.getAudioInputStream(musicFile);
             clip.open(inputStream);
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
             clip.start();
 
             while (isRunning && clip.getMicrosecondPosition() < clip.getMicrosecondLength()) {
                 Thread.sleep(10);
             }
 
-            clip.stop();
-            clip.close();
-            inputStream.close();
         } catch (IOException | UnsupportedAudioFileException | LineUnavailableException | InterruptedException e) {
             e.printStackTrace();
         }
@@ -336,6 +334,7 @@ public class HomeController extends Thread implements Initializable {
                 AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicFile);
                 clip = AudioSystem.getClip();
                 clip.open(audioInput);
+                clip.loop(Clip.LOOP_CONTINUOUSLY);
                 clip.start();
             } catch (Exception ex) {
                 ex.printStackTrace();
