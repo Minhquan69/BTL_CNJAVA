@@ -1,0 +1,61 @@
+.vbox {
+    -fx-background-color: #f8f9fa; /* Màu nền */
+    -fx-padding: 20px; /* Khoảng cách nội bộ */
+    -fx-spacing: 10px; /* Khoảng cách giữa các thành phần con */
+}
+
+.label {
+    -fx-font-size: 16px; /* Kích thước font */
+    -fx-text-fill: #333; /* Màu chữ */
+}
+
+/* Định dạng trường văn bản */
+.text-field {
+    -fx-pref-width: 250px; /* Chiều rộng  */
+    -fx-background-color: #f8f9fa; /* Màu nền */
+    -fx-border-color: #ced4da; /* Màu viền */
+    -fx-border-radius: 5px; /* Độ cong viền */
+    -fx-padding: 8px; /* Khoảng cách nội bộ */
+}
+
+/* Định dạng vùng văn bản */
+.text-area {
+    -fx-pref-width: 250px; /* Chiều rộng */
+    -fx-pref-height: 120px; /* Chiều cao */
+    -fx-background-color: #f8f9fa; /* Màu nền */
+    -fx-border-color: #ced4da; /* Màu viền */
+    -fx-border-radius: 5px; /* Độ cong viền */
+    -fx-padding: 8px; /* Khoảng cách nội bộ */
+}
+
+/* Định dạng nút */
+.button {
+    -fx-background-color: #007bff; /* Màu nền */
+    -fx-text-fill: white; /* Màu chữ */
+    -fx-pref-width: 150px; /* Chiều rộng */
+    -fx-pref-height: 40px; /* Chiều cao */
+    -fx-border-radius: 5px; /* Độ cong viền */
+}
+
+.button:hover {
+    -fx-background-color: #0056b3; /* Màu nền khi rê chuột */
+}
+
+/* Định dạng combobox */
+.combo-box {
+    -fx-pref-width: 250px; /* Chiều rộng */
+    -fx-background-color: #f8f9fa; /* Màu nền */
+    -fx-border-color: #ced4da; /* Màu viền */
+    -fx-border-radius: 5px; /* Độ cong viền */
+    -fx-padding: 8px; /* Khoảng cách nội bộ */
+}
+
+/* Định dạng combobox khi được nhấp chuột */
+.combo-box:hover {
+    -fx-background-color: #e2e6ea; /* Màu nền khi rê chuột */
+}
+
+/* Định dạng combobox khi được chọn */
+.combo-box:selected {
+    -fx-background-color: #d6d8db; /* Màu nền khi chọn */
+}

@@ -1,6 +1,8 @@
 package com.example.pj.Controller;
 
 import com.example.pj.Models.Item;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,6 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import javax.sound.sampled.*;
 import java.io.BufferedReader;
@@ -77,8 +80,10 @@ public class HomeController extends Thread implements Initializable {
     private Button btnTiepTuc;
     @FXML
     private Button btnTatNhac;
+    @FXML
+    private  Label labelGioHang;
 
-    private static final String MUSIC_FILE = "E:\\Test\\progresbar.mp3";
+
     //TẠO MỘT DANH SÁCH CÁC SẢN PHẨM ĐƯỢC THÊM VÀO GIỎ HÀNG
     public static List<Item> itemsGioHang = new ArrayList<>();
     public static List<Item> itemAll = new ArrayList<>();
@@ -86,6 +91,10 @@ public class HomeController extends Thread implements Initializable {
     public static final String FILE_PATHH = "E:\\btllll\\project-btl-oop-master\\src\\main\\java\\com\\example\\pj\\itemAll.txt";
     //PHƯƠNG THỨC TRẢ VỀ DANH SÁCH CHỨA CÁC ITEM
     private static final String FILE_PATH = "E:\\btllll\\project-btl-oop-master\\src\\main\\java\\com\\example\\pj\\itemsHome.txt";
+
+    private File musicFile = new File("E:\\Test\\progresbar.au");
+    private boolean isRunning = true;
+    private Clip clip;
 
 
     public List<Item> taoDS() {
@@ -132,7 +141,6 @@ public class HomeController extends Thread implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-
         try {
             clip = AudioSystem.getClip();
             AudioInputStream inputStream = AudioSystem.getAudioInputStream(musicFile);
@@ -151,13 +159,13 @@ public class HomeController extends Thread implements Initializable {
 
         List<Item> itemsGoiY = new ArrayList<>(taoDS());
 
-
         try {
             for (Item item : itemsGoiY) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/fxml/item.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
                 ItemController itemController = fxmlLoader.getController();
+                itemController.setHomeController(this);
                 itemController.setData(item);
 
                 if (column == 5) {
@@ -177,6 +185,8 @@ public class HomeController extends Thread implements Initializable {
 
     // SỰ KIỆN ẤN VÀO GIỎ HÀNG BUTTON
     public void onGioHangButton() throws Exception {
+        clip.stop();
+        clip.close();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/gioHang.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = (Stage) gioHangButton.getScene().getWindow();
@@ -186,6 +196,8 @@ public class HomeController extends Thread implements Initializable {
 
     //SỰ KIỆN ẤN VÀO BUTTON PHONE
     public void onPhone() throws Exception {
+        clip.stop();
+        clip.close();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Phone.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = (Stage) PhoneButton.getScene().getWindow();
@@ -195,6 +207,8 @@ public class HomeController extends Thread implements Initializable {
 
     //SỰ KIỆN ẤN VÀO BUTTON TABLET
     public void onTablet() throws Exception {
+        clip.stop();
+        clip.close();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Tablet.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = (Stage) TabletButton.getScene().getWindow();
@@ -204,6 +218,8 @@ public class HomeController extends Thread implements Initializable {
 
     //SỰ KIỆN ẤN VÀO BUTTON PHU KIEN
     public void onPhuKien() throws Exception {
+        clip.stop();
+        clip.close();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/PhuKien.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = (Stage) phuKienButton.getScene().getWindow();
@@ -213,6 +229,8 @@ public class HomeController extends Thread implements Initializable {
 
     //XỬ LÝ SỰ KIỆN BUTTON  HÓA ĐƠN
     public void onHoaDon() throws Exception {
+        clip.stop();
+        clip.close();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/hoaDon.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = (Stage) hoaDonButton.getScene().getWindow();
@@ -256,11 +274,15 @@ public class HomeController extends Thread implements Initializable {
     @FXML
     //XỬ LÝ SỰ KIỆN BUTTON THOÁT
     public void onThoat() {
+        clip.stop();
+        clip.close();
         System.exit(0);
     }
 
     //XỬ LÝ SỰ KIỆN BUTTON ĐĂNG XUẤT
     public void onDangXuat() throws Exception {
+        clip.stop();
+        clip.close();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = (Stage) dangXuatButton.getScene().getWindow();
@@ -270,6 +292,8 @@ public class HomeController extends Thread implements Initializable {
 
 
     public void onKhieuNai() throws Exception {
+        clip.stop();
+        clip.close();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/KhiieuNaiForm.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = (Stage) khieuNaiButton.getScene().getWindow();
@@ -278,15 +302,13 @@ public class HomeController extends Thread implements Initializable {
     }
 
 
-    private File musicFile = new File("E:\\Test\\progresbar.au");
-    private boolean isRunning = true;
-    private Clip clip;
-
 
 
     @Override
     public void run() {
         try {
+
+
             clip = AudioSystem.getClip();
             AudioInputStream inputStream = AudioSystem.getAudioInputStream(musicFile);
             clip.open(inputStream);
@@ -341,5 +363,17 @@ public class HomeController extends Thread implements Initializable {
             }
         }
 
+    public  void hamThemGH() {
+        if (labelGioHang != null) {
+            labelGioHang.setText("Đã thêm vào giỏ hàng!");
+            labelGioHang.setVisible(true);
+
+            // Tạo một Timeline để ẩn label sau 2 giây
+            Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2), e -> labelGioHang.setVisible(false)));
+            timeline.play();
+        } else {
+            System.out.println("labelGioHang is null. Cannot update label.");
+        }
+    }
 
 }

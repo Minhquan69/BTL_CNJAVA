@@ -7,7 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import static com.example.pj.Controller.HomeController.itemsGioHang;
+import static com.example.pj.Controller.HomeController.*;
 
 public class ItemController {
 
@@ -27,7 +27,10 @@ public class ItemController {
     private ImageView starItem;
 
     private Item item;
-
+    private HomeController homeController;
+    private PhoneController phoneController;
+    private TabletController tabletController;
+    private PhukienController phukienController;
 
 
     //THIẾT LẬP CÁC THÔNG  TIN ITEM HIỂN THỊ LÊN
@@ -50,19 +53,48 @@ public class ItemController {
         image = new Image(getClass().getResourceAsStream(item.getItemStar()));
         starItem.setImage(image);
     }
+    public void setHomeController(HomeController homeController) {
+        this.homeController = homeController;
+    }
+    public void setPhoneController(PhoneController phoneController) {
+       this.phoneController=phoneController;
+    }
+    public void setTabletController(TabletController tabletController) {
+        this.tabletController=tabletController;
+    }
+    public void setPhukienController(PhukienController phukienController) {
+        this.phukienController=phukienController;
+    }
 
     //SỰ KIỆN THÊM VÀO GIỎ HÀNG
     public void onThemGioHang() {
 
-        for(Item a : itemsGioHang) {
-            if(a.getItemName().equals(item.getItemName())){
+        for (Item a : itemsGioHang) {
+            if (a.getItemName().equals(item.getItemName())) {
                 return;
             }
         }
         itemsGioHang.add(item);
+
+        if (homeController != null) {
+            homeController.hamThemGH();
+        } else {
+        }
+        if (phoneController != null) {
+            phoneController.hamThemGH();
+        } else {
+        }
+        if (tabletController != null) {
+            tabletController.hamThemGH();
+        } else {
+        }
+        if (phukienController != null) {
+            phukienController.hamThemGH();
+        } else {
+        }
+
+
     }
-
-
 
 
 }

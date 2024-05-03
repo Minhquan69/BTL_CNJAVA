@@ -14,11 +14,11 @@
 
 <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pj.Controller.PhukienController">
     <content>
-        <VBox prefHeight="700.0" prefWidth="1200.0" styleClass="background3" stylesheets="@../css/Phone.css">
+        <VBox prefHeight="700.0" prefWidth="1200.0" styleClass="background3">
             <children>
-                <AnchorPane minHeight="200.0" prefHeight="200.0" prefWidth="1200.0" styleClass="background1" stylesheets="@../css/Phone.css" VBox.vgrow="ALWAYS">
+                <AnchorPane minHeight="200.0" prefHeight="200.0" prefWidth="1200.0" styleClass="background1" VBox.vgrow="ALWAYS">
                     <children>
-                        <AnchorPane layoutX="36.0" layoutY="-30.0" prefHeight="122.0" prefWidth="191.0" styleClass="tieude" stylesheets="@../css/Phone.css">
+                        <AnchorPane layoutX="36.0" layoutY="-30.0" prefHeight="122.0" prefWidth="191.0" styleClass="tieude">
                             <children>
                                 <Label alignment="CENTER" layoutX="15.0" layoutY="42.0" prefHeight="54.0" prefWidth="158.0" text="Phụ Kiện">
                                     <font>
@@ -27,12 +27,12 @@
                                 </Label>
                             </children>
                         </AnchorPane>
-                        <TextField fx:id="timKiemField" focusTraversable="false" layoutX="373.0" layoutY="89.0" prefHeight="33.0" prefWidth="350.0" promptText="Bạn cần tìm gì?" styleClass="search" stylesheets="@../css/Phone.css">
+                        <TextField fx:id="timKiemField" focusTraversable="false" layoutX="373.0" layoutY="89.0" prefHeight="33.0" prefWidth="350.0" promptText="Bạn cần tìm gì?" styleClass="search">
                             <font>
                                 <Font name="System Bold" size="12.0" />
                             </font></TextField>
-                        <Button fx:id="timKiemButton" layoutX="746.0" layoutY="91.0" mnemonicParsing="false" onAction="#onButtonTimKiem" styleClass="buttonSearch" stylesheets="@../css/Phone.css" text="Tìm kiếm" />
-                        <Button fx:id="quayLaiButton" layoutX="1082.0" layoutY="22.0" mnemonicParsing="false" onAction="#onButtonQuayLai" prefHeight="47.0" prefWidth="78.0" styleClass="buttonQL" stylesheets="@../css/Phone.css" text="Quay lại">
+                        <Button fx:id="timKiemButton" layoutX="746.0" layoutY="91.0" mnemonicParsing="false" onAction="#onButtonTimKiem" styleClass="buttonSearch" text="Tìm kiếm" />
+                        <Button fx:id="quayLaiButton" layoutX="1082.0" layoutY="22.0" mnemonicParsing="false" onAction="#onButtonQuayLai" prefHeight="47.0" prefWidth="78.0" styleClass="buttonQL" text="Quay lại">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
                             </cursor>
@@ -40,9 +40,14 @@
                                 <Font name="System Bold" size="14.0" />
                             </font>
                         </Button>
+                  <Button layoutX="833.0" layoutY="91.0" mnemonicParsing="false" onAction="#pauseMusic" styleClass="buttonQL" stylesheets="@../css/quanAo.css" text="Dừng" />
+                  <Button layoutX="900.0" layoutY="91.0" mnemonicParsing="false" onAction="#resumeMusic" styleClass="buttonSearch" stylesheets="@../css/quanAo.css" text="Tiếp tục" />
+                  <Button layoutX="970.0" layoutY="91.0" mnemonicParsing="false" onAction="#stopMusic" styleClass="buttonQL" stylesheets="@../css/quanAo.css" text="Tắt nhạc" />
+                  <Button layoutX="1040.0" layoutY="91.0" mnemonicParsing="false" onAction="#startMusic" styleClass="buttonSearch" stylesheets="@../css/quanAo.css" text="Bật nhạc" />
+                  <Label fx:id="labelGioHang" layoutX="600.0" layoutY="195.0" textFill="#e70a0a" />
                     </children>
                 </AnchorPane>
-                <AnchorPane prefHeight="385.0" prefWidth="1000.0" styleClass="NenHienThiSanPham" stylesheets="@../css/Phone.css" VBox.vgrow="ALWAYS">
+                <AnchorPane prefHeight="385.0" prefWidth="1000.0" styleClass="NenHienThiSanPham" VBox.vgrow="ALWAYS">
                     <VBox.margin>
                         <Insets left="100.0" right="100.0" top="50.0" />
                     </VBox.margin>

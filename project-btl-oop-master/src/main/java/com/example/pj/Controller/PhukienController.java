@@ -1,21 +1,23 @@
 package com.example.pj.Controller;
 
 import com.example.pj.Models.Item;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
+import javax.sound.sampled.*;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
@@ -25,7 +27,7 @@ import java.util.ResourceBundle;
 
 import static com.example.pj.Controller.HomeController.itemAll;
 
-public class PhukienController implements Initializable {
+public class PhukienController extends Thread implements Initializable {
 
     @FXML
     private GridPane gridPane;
@@ -41,6 +43,13 @@ public class PhukienController implements Initializable {
 
     @FXML
     private TextField timKiemField;
+    @FXML
+    private Label labelGioHang;
+
+
+    private File musicFile = new File("E:\\Test\\progresbar.au");
+    private boolean isRunning = true;
+    private Clip clip;
     //PHƯƠNG THỨC TRẢ VỀ DANH SÁCH CHỨA CÁC ITEM
     private static final String FILE_PATH="E:\\btllll\\project-btl-oop-master\\src\\main\\java\\com\\example\\pj\\itemPhuKien.txt";
     public List<Item> taoDS() {
@@ -65,6 +74,20 @@ public class PhukienController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            clip = AudioSystem.getClip();
+            AudioInputStream inputStream = AudioSystem.getAudioInputStream(musicFile);
+            clip.open(inputStream);
+
+        } catch (IOException | UnsupportedAudioFileException | LineUnavailableException e) {
+            e.printStackTrace();
+        }
+
+
+
+        Thread thread = new Thread(this);
+        thread.start();
+
 
         int column = 0;
         int row = 1;
@@ -77,6 +100,7 @@ public class PhukienController implements Initializable {
                 fxmlLoader.setLocation(getClass().getResource("/fxml/item.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
                 ItemController itemController = fxmlLoader.getController();
+                itemController.setPhukienController(this);
                 itemController.setData(item);
 
                 if (column == 5) {
@@ -95,7 +119,8 @@ public class PhukienController implements Initializable {
 
     // XỬ LÝ SỰ KIỆN BUTTON QUAY LẠI
     public void onButtonQuayLai() throws Exception{
-
+        clip.stop();
+        clip.close();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/home.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = (Stage) quayLaiButton.getScene().getWindow();
@@ -134,8 +159,77 @@ public class PhukienController implements Initializable {
     }
 
 
+    @Override
+    public void run() {
+        try {
 
 
+            clip = AudioSystem.getClip();
+            AudioInputStream inputStream = AudioSystem.getAudioInputStream(musicFile);
+            clip.open(inputStream);
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
+            clip.start();
+
+            while (isRunning && clip.getMicrosecondPosition() < clip.getMicrosecondLength()) {
+                Thread.sleep(10);
+            }
+
+        } catch (IOException | UnsupportedAudioFileException | LineUnavailableException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void pauseMusic() {
+        if (clip != null && clip.isRunning()) {
+            clip.stop();
+        }
+    }
+
+    public void resumeMusic() {
+        if (clip != null && !clip.isRunning()) {
+            long currentPosition = clip.getMicrosecondPosition();
+            clip.setMicrosecondPosition(currentPosition);
+            clip.start();
+        }
+    }
+
+    public void stopMusic() {
+        isRunning = false;
+        if (clip != null) {
+            clip.stop();
+            clip.close();
+        }
+    }
+
+    public void startMusic() {
+        if (clip != null && clip.isOpen()) {
+            clip.stop();
+            clip.close();
+        }
+
+        try {
+            AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicFile);
+            clip = AudioSystem.getClip();
+            clip.open(audioInput);
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
+            clip.start();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public  void hamThemGH() {
+        if (labelGioHang != null) {
+            labelGioHang.setText("Đã thêm vào giỏ hàng!");
+            labelGioHang.setVisible(true);
+
+            // Tạo một Timeline để ẩn label sau 2 giây
+            Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2), e -> labelGioHang.setVisible(false)));
+            timeline.play();
+        } else {
+            System.out.println("labelGioHang is null. Cannot update label.");
+        }
+    }
 
 
 

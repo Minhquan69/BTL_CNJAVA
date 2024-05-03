@@ -9,23 +9,23 @@
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pj.Controller.KhiieuNaiFormController">
-    <VBox alignment="CENTER" prefHeight="680.0" prefWidth="528.0" spacing="10.0">
-        <Button fx:id="quayLaiButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButtonQuayLai" text="Quay lại" />
+    <VBox alignment="CENTER" prefHeight="680.0" prefWidth="528.0" spacing="10.0" styleClass="vbox" stylesheets="@../css/form.css">
+        <Button fx:id="quayLaiButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onButtonQuayLai" stylesheets="@../css/form.css" text="Quay lại" />
 
-        <Label text="Form Khiếu nại" />
-        <Label text="Họ và tên" />
-        <TextField fx:id="txtHoTen" />
-        <Label text="Nội dung khiếu nại" />
-        <TextArea fx:id="txtNoiDung" />
-        <Label text="Chọn file đính kèm" />
-        <Button onAction="#selectFile" text="Chọn file" />
-        <Label text="ID Đơn hàng" />
-        <TextField fx:id="txtDonHangID" />
-        <Label text="Email" />
-        <TextField fx:id="txtEmail" />
-        <Label text="Lựa chọn thắc mắc" />
-        <ComboBox fx:id="cmbThacMac" />
-        <Button onAction="#submitKhiieuNai" text="Gửi khiếu nại" />
+        <Label stylesheets="@../css/form.css" text="Form Khiếu nại" />
+        <Label stylesheets="@../css/form.css" text="Họ và tên" />
+        <TextField fx:id="txtHoTen" styleClass="text-field" stylesheets="@../css/form.css" />
+        <Label stylesheets="@../css/form.css" text="Nội dung khiếu nại" />
+        <TextArea fx:id="txtNoiDung" styleClass="text-area" stylesheets="@../css/form.css" />
+        <Label stylesheets="@../css/form.css" text="Chọn file đính kèm" />
+        <Button onAction="#selectFile" style="-fx-background-color: green;" stylesheets="@../css/form.css" text="Chọn file" />
+        <Label stylesheets="@../css/form.css" text="ID Đơn hàng" />
+        <TextField fx:id="txtDonHangID" styleClass="text-field" stylesheets="@../css/form.css" />
+        <Label stylesheets="@../css/form.css" text="Email" />
+        <TextField fx:id="txtEmail" styleClass="text-field" stylesheets="@../css/form.css" />
+        <Label stylesheets="@../css/form.css" text="Lựa chọn thắc mắc" />
+        <ComboBox fx:id="cmbThacMac" styleClass="combo-box" stylesheets="@../css/form.css" />
+        <Button onAction="#submitKhiieuNai" style="-fx-background-color: orange;" stylesheets="@../css/form.css" text="Gửi khiếu nại" />
 
 
     </VBox>

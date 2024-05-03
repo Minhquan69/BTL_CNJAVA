@@ -6,7 +6,7 @@
 }
 
 .ButtonThemGioHang:hover {
-    -fx-background-color: #e46957;
+    -fx-background-color: red;
 }
 
 .ButtonThemGioHang:pressed {

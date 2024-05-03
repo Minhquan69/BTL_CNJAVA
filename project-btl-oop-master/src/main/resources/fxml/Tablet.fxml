@@ -40,6 +40,11 @@
                                 <Font name="System Bold" size="14.0" />
                             </font>
                         </Button>
+                  <Button layoutX="824.0" layoutY="91.0" mnemonicParsing="false" onAction="#pauseMusic" styleClass="buttonQL" text="Dừng" />
+                  <Button layoutX="880.0" layoutY="91.0" mnemonicParsing="false" onAction="#resumeMusic" styleClass="buttonQL" text="Tiếp tục" />
+                  <Button layoutX="955.0" layoutY="91.0" mnemonicParsing="false" onAction="#stopMusic" styleClass="buttonSearch" text="Tắt nhạc" />
+                  <Button layoutX="1023.0" layoutY="91.0" mnemonicParsing="false" onAction="#startMusic" styleClass="buttonSearch" text="Bật nhạc" />
+                  <Label fx:id="labelGioHang" layoutX="638.0" layoutY="201.0" textFill="#e10808" />
                     </children>
                 </AnchorPane>
                 <AnchorPane prefHeight="385.0" prefWidth="1000.0" styleClass="NenHienThiSanPham" stylesheets="@../css/quanAo.css" VBox.vgrow="ALWAYS">
