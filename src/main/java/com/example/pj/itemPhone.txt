@@ -1,7 +1,0 @@
-/image/item/Phone/XR.jpg,Iphone XR,50000,/image/item/danhGia/5sao.gif,a1
-/image/item/Phone/11prm.jpg,Iphone 11PRM,40000,/image/item/danhGia/5sao.gif,a2
-/image/item/Phone/ip12.jpg,Iphone 12,60000,/image/item/danhGia/5sao.gif,a3
-/image/item/Phone/ip13.jpg,Iphone 13,100000,/image/item/danhGia/5sao.gif,a4
-/image/item/Phone/15prm.jpg,Iphone 15PRM,40000,/image/item/danhGia/5sao.gif,a5
-/image/item/Phone/poco40.jpg,Poco 40,60000,/image/item/danhGia/5sao.gif,a6
-/image/item/Phone/ssS21.jpg,Samsung S21,100000,/image/item/danhGia/5sao.gif,a7
