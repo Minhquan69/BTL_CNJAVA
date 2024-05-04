@@ -46,10 +46,10 @@ public class TabletController extends Thread implements Initializable {
     @FXML
     private Label labelGioHang;
 
-    private File musicFile = new File("E:\\Test\\progresbar.au");
+    private File musicFile = new File("C:\\Users\\fifah\\Documents\\Zalo Received Files\\btllll\\project-btl-oop-master\\src\\Baihat4-_mp3cut.net_.au");
     private boolean isRunning = true;
     private Clip clip;
-    private static final String FILE_PATH="E:\\btllll\\project-btl-oop-master\\src\\main\\java\\com\\example\\pj\\itemTablet.txt";
+    private static final String FILE_PATH="C:\\Users\\fifah\\Documents\\Zalo Received Files\\btllll\\project-btl-oop-master\\src\\itemTablet.txt";
     public List<Item> taoDS() {
         List<Item> ls = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(FILE_PATH))) {

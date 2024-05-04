@@ -1,8 +1,0 @@
-/image/item/Tablet/ipadgen10.jpg,Ipad Gen 10,18000,/image/item/danhGia/5sao.gif,b1
-/image/item/Tablet/ipadPro11.jpg,Ipad Pro M1,15000,/image/item/danhGia/5sao.gif,b2
-/image/item/Tablet/kindle.jpg,Kindel,14000,/image/item/danhGia/5sao.gif,b3
-/image/item/Tablet/xiaomipad6.jpg,Xiaomi Pad 6,17000,/image/item/danhGia/5sao.gif,b4
-/image/item/Tablet/ipadProM2.jpg,Ipad Pro M2,15000,/image/item/danhGia/5sao.gif,b5
-/image/item/Tablet/lenovotabm10.jpg,Lenovo Tab M10,25000,/image/item/danhGia/5sao.gif,b6
-/image/item/Tablet/nokiaT21.jpg,Nokia Tab 21,14000,/image/item/danhGia/5sao.gif,b7
-/image/item/Tablet/tabs9.jpg,Samsung Tab S9,27000,/image/item/danhGia/5sao.gif,b8

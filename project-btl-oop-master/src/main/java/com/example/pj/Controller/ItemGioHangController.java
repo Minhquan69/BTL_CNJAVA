@@ -42,6 +42,7 @@ public class ItemGioHangController {
 
     private Item item;
 
+
     //THIẾT LẬP DỮ LIỆU CHO CẢNH ITEMGIOHANG
     public void setData(Item item) {
         this.item = item;
@@ -78,6 +79,7 @@ public class ItemGioHangController {
 
     //SỰ KIỆN KHI ẤN NÚT TĂNG SỐ LƯỢNG
     public void onTangButton() throws Exception{
+
         for (Item a : itemsGioHang) {
             if (a.getItemName().equals(item.getItemName())) {
                 a.setItemNumber(a.getItemNumber()+1);

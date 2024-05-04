@@ -6,8 +6,8 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pj.Controller.ThanhToanController">
     <children>
-        <Label layoutX="129.0" layoutY="46.0" text="Chọn phương thức thanh toán" />
-        <Button fx:id="chuyenKhoanButton" layoutX="102.0" layoutY="109.0" mnemonicParsing="false" onAction="#chonChuyenKhoan" text="Chuyển khoản" />
-        <Button fx:id="tienMatButton" layoutX="260.0" layoutY="109.0" mnemonicParsing="false" onAction="#chonTienMat" text="Tiền mặt" />
+        <Label layoutX="79.0" layoutY="44.0" stylesheets="@../css/thanhToan.css" text="Chọn phương thức thanh toán" />
+        <Button fx:id="chuyenKhoanButton" layoutX="62.0" layoutY="109.0" mnemonicParsing="false" onAction="#chonChuyenKhoan" stylesheets="@../css/thanhToan.css" text="Chuyển khoản" />
+        <Button fx:id="tienMatButton" layoutX="260.0" layoutY="109.0" mnemonicParsing="false" onAction="#chonTienMat" style="-fx-background-color: orange;" stylesheets="@../css/thanhToan.css" text="Tiền mặt" />
     </children>
 </AnchorPane>

@@ -88,11 +88,11 @@ public class HomeController extends Thread implements Initializable {
     public static List<Item> itemsGioHang = new ArrayList<>();
     public static List<Item> itemAll = new ArrayList<>();
 
-    public static final String FILE_PATHH = "E:\\btllll\\project-btl-oop-master\\src\\main\\java\\com\\example\\pj\\itemAll.txt";
+    public static final String FILE_PATHH = "C:\\Users\\fifah\\Documents\\Zalo Received Files\\btllll\\project-btl-oop-master\\src\\itemAll.txt";
     //PHƯƠNG THỨC TRẢ VỀ DANH SÁCH CHỨA CÁC ITEM
-    private static final String FILE_PATH = "E:\\btllll\\project-btl-oop-master\\src\\main\\java\\com\\example\\pj\\itemsHome.txt";
+    private static final String FILE_PATH = "C:\\Users\\fifah\\Documents\\Zalo Received Files\\btllll\\project-btl-oop-master\\src\\itemsHome.txt";
 
-    private File musicFile = new File("E:\\Test\\progresbar.au");
+    private File musicFile = new File("C:\\Users\\fifah\\Documents\\Zalo Received Files\\btllll\\project-btl-oop-master\\src\\Baihat1-_mp3cut.net_.au");
     private boolean isRunning = true;
     private Clip clip;
 

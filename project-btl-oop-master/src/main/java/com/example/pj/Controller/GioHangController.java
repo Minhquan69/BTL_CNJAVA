@@ -23,7 +23,7 @@ import java.util.ResourceBundle;
 
 import static com.example.pj.Controller.HomeController.itemsGioHang;
 
-public class GioHangController extends Thread implements Initializable {
+public class GioHangController implements Initializable {
 
     @FXML
     private ImageView avatar;
@@ -52,10 +52,6 @@ public class GioHangController extends Thread implements Initializable {
     @FXML
     private VBox vBox;
 
-    private File musicFile = new File("E:\\Test\\progresbar.au");
-    private boolean isRunning = true;
-    private Clip clip;
-
     private List<Item> ds = itemsGioHang;
     private int tong = 0;
     public static List<HoaDon> dsHoaDon = new ArrayList<>();
@@ -67,24 +63,6 @@ public class GioHangController extends Thread implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        try {
-            clip = AudioSystem.getClip();
-            AudioInputStream inputStream = AudioSystem.getAudioInputStream(musicFile);
-            clip.open(inputStream);
-
-        } catch (IOException | UnsupportedAudioFileException | LineUnavailableException e) {
-            e.printStackTrace();
-        }
-
-
-
-        Thread thread = new Thread(this);
-        thread.start();
-
-
-
-
         this.url = url;
         this.resourceBundle = resourceBundle;
 
@@ -112,8 +90,6 @@ public class GioHangController extends Thread implements Initializable {
 
     //SỰ KIỆN BUTTON QUAY LẠI
     public void onButtonQuayLai() throws Exception {
-        clip.stop();
-        clip.close();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/home.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = (Stage) quayLaiButton.getScene().getWindow();
@@ -123,8 +99,6 @@ public class GioHangController extends Thread implements Initializable {
 
     //SỰ KIỆN KHI NHẤN VÀO NÚT THANH TOÁN
     public void onButtonThanhToan() throws Exception {
-        clip.stop();
-        clip.close();
         if (tong==0){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Thông báo");
@@ -156,7 +130,6 @@ public class GioHangController extends Thread implements Initializable {
     }}
 
 
-    //SỬ LÝ SỰ KIỆN TÌM KIẾM
     // SỬ LÝ SỰ KIỆN TÌM KIẾM
     @FXML
     public void onButtonTimKiem() {
@@ -185,65 +158,6 @@ public class GioHangController extends Thread implements Initializable {
 
 
 
-
-    @Override
-    public void run() {
-        try {
-
-
-            clip = AudioSystem.getClip();
-            AudioInputStream inputStream = AudioSystem.getAudioInputStream(musicFile);
-            clip.open(inputStream);
-            clip.loop(Clip.LOOP_CONTINUOUSLY);
-            clip.start();
-
-            while (isRunning && clip.getMicrosecondPosition() < clip.getMicrosecondLength()) {
-                Thread.sleep(10);
-            }
-
-        } catch (IOException | UnsupportedAudioFileException | LineUnavailableException | InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void pauseMusic() {
-        if (clip != null && clip.isRunning()) {
-            clip.stop();
-        }
-    }
-
-    public void resumeMusic() {
-        if (clip != null && !clip.isRunning()) {
-            long currentPosition = clip.getMicrosecondPosition();
-            clip.setMicrosecondPosition(currentPosition);
-            clip.start();
-        }
-    }
-
-    public void stopMusic() {
-        isRunning = false;
-        if (clip != null) {
-            clip.stop();
-            clip.close();
-        }
-    }
-
-    public void startMusic() {
-        if (clip != null && clip.isOpen()) {
-            clip.stop();
-            clip.close();
-        }
-
-        try {
-            AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicFile);
-            clip = AudioSystem.getClip();
-            clip.open(audioInput);
-            clip.loop(Clip.LOOP_CONTINUOUSLY);
-            clip.start();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
 
 
 

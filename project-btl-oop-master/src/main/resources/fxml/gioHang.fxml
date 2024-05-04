@@ -47,14 +47,6 @@
                         <Font name="System Bold" size="12.0" />
                     </font>
                 </TextField>
-                <Button fx:id="timKiemButton" layoutX="708.0" layoutY="60.0" mnemonicParsing="false" onAction="#onButtonTimKiem" prefHeight="30.0" prefWidth="76.0" styleClass="buttonSearch" stylesheets="@../css/gioHang.css" text="Tìm kiếm">
-                    <font>
-                        <Font name="System Bold" size="12.0" />
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Button>
                 <Button fx:id="quayLaiButton" layoutX="1113.0" layoutY="14.0" mnemonicParsing="false" onAction="#onButtonQuayLai" prefHeight="47.0" prefWidth="78.0" styleClass="buttonQL" stylesheets="@../css/gioHang.css" text="Quay lại">
                     <font>
                         <Font name="System Bold" size="14.0" />
@@ -63,16 +55,11 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
-            <Button layoutX="798.0" layoutY="63.0" mnemonicParsing="false" onAction="#pauseMusic" prefHeight="26.0" prefWidth="54.0" styleClass="buttonSearch" text="Dừng">
+            <Button fx:id="timKiemButton" layoutX="720.0" layoutY="63.0" mnemonicParsing="false" onAction="#onButtonTimKiem" styleClass="buttonSearch" text="Tìm kiếm">
                <font>
                   <Font name="System Bold" size="12.0" />
-               </font></Button>
-            <Button layoutX="859.0" layoutY="64.0" mnemonicParsing="false" onAction="#resumeMusic" prefHeight="25.0" prefWidth="64.0" styleClass="buttonSearch" text="Tiếp tục">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font></Button>
-            <Button layoutX="935.0" layoutY="63.0" mnemonicParsing="false" onAction="#stopMusic" prefHeight="27.0" prefWidth="73.0" styleClass="buttonQL" text="Tắt nhạc" />
-            <Button layoutX="1021.0" layoutY="64.0" mnemonicParsing="false" onAction="#startMusic" styleClass="buttonQL" text="Bật nhạc" />
+               </font>
+            </Button>
             </children>
         </AnchorPane>
     </top>

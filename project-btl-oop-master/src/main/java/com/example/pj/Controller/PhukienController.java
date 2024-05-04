@@ -47,11 +47,11 @@ public class PhukienController extends Thread implements Initializable {
     private Label labelGioHang;
 
 
-    private File musicFile = new File("E:\\Test\\progresbar.au");
+    private File musicFile = new File("C:\\Users\\fifah\\Documents\\Zalo Received Files\\btllll\\project-btl-oop-master\\src\\Baihat3-_mp3cut.net_.au");
     private boolean isRunning = true;
     private Clip clip;
     //PHƯƠNG THỨC TRẢ VỀ DANH SÁCH CHỨA CÁC ITEM
-    private static final String FILE_PATH="E:\\btllll\\project-btl-oop-master\\src\\main\\java\\com\\example\\pj\\itemPhuKien.txt";
+    private static final String FILE_PATH="C:\\Users\\fifah\\Documents\\Zalo Received Files\\btllll\\project-btl-oop-master\\src\\itemPhuKien.txt";
     public List<Item> taoDS() {
         List<Item> ls = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(FILE_PATH))) {
