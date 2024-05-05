@@ -29,7 +29,7 @@
                                 <Image url="@../image/home/avatar.png" />
                             </image>
                         </ImageView>
-                        <Label fx:id="nameUser" text="Đặng Minh Trí">
+                        <Label fx:id="nameUser">
                             <font>
                                 <Font name="System Bold" size="14.0" />
                             </font>

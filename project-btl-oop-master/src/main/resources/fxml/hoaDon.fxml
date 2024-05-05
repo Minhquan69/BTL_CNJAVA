@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pj.Controller.HoaDonController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pj.Controller.HoaDonController">
     <top>
         <AnchorPane prefHeight="150.0" prefWidth="1200.0" styleClass="background1" stylesheets="@../css/gioHang.css" BorderPane.alignment="CENTER">
             <children>
@@ -28,7 +28,7 @@
                                 <Image url="@../image/home/avatar.png" />
                             </image>
                         </ImageView>
-                        <Label fx:id="nameUser" text="Đặng Minh Trí">
+                        <Label fx:id="nameUser">
                             <font>
                                 <Font name="System Bold" size="14.0" />
                             </font>
