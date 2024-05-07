@@ -74,14 +74,7 @@ public class PhukienController extends Thread implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            clip = AudioSystem.getClip();
-            AudioInputStream inputStream = AudioSystem.getAudioInputStream(musicFile);
-            clip.open(inputStream);
 
-        } catch (IOException | UnsupportedAudioFileException | LineUnavailableException e) {
-            e.printStackTrace();
-        }
 
 
 
@@ -170,11 +163,8 @@ public class PhukienController extends Thread implements Initializable {
             clip.loop(Clip.LOOP_CONTINUOUSLY);
             clip.start();
 
-            while (isRunning && clip.getMicrosecondPosition() < clip.getMicrosecondLength()) {
-                Thread.sleep(10);
-            }
 
-        } catch (IOException | UnsupportedAudioFileException | LineUnavailableException | InterruptedException e) {
+        } catch (IOException | UnsupportedAudioFileException | LineUnavailableException  e) {
             e.printStackTrace();
         }
     }

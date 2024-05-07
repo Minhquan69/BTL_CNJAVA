@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import javax.sound.sampled.*;
+import java.awt.event.ActionEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -141,14 +142,6 @@ public class HomeController extends Thread implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        try {
-            clip = AudioSystem.getClip();
-            AudioInputStream inputStream = AudioSystem.getAudioInputStream(musicFile);
-            clip.open(inputStream);
-
-        } catch (IOException | UnsupportedAudioFileException | LineUnavailableException  e) {
-            e.printStackTrace();
-        }
 
 
 
@@ -307,19 +300,13 @@ public class HomeController extends Thread implements Initializable {
     @Override
     public void run() {
         try {
-
-
             clip = AudioSystem.getClip();
             AudioInputStream inputStream = AudioSystem.getAudioInputStream(musicFile);
             clip.open(inputStream);
             clip.loop(Clip.LOOP_CONTINUOUSLY);
             clip.start();
 
-            while (isRunning && clip.getMicrosecondPosition() < clip.getMicrosecondLength()) {
-                Thread.sleep(10);
-            }
-
-        } catch (IOException | UnsupportedAudioFileException | LineUnavailableException | InterruptedException e) {
+        } catch (IOException | UnsupportedAudioFileException | LineUnavailableException e) {
             e.printStackTrace();
         }
     }
@@ -367,7 +354,6 @@ public class HomeController extends Thread implements Initializable {
         if (labelGioHang != null) {
             labelGioHang.setText("Đã thêm vào giỏ hàng!");
             labelGioHang.setVisible(true);
-
             // Tạo một Timeline để ẩn label sau 2 giây
             Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2), e -> labelGioHang.setVisible(false)));
             timeline.play();
