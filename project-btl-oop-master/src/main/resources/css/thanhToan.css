@@ -1,0 +1,28 @@
+/* Áp dụng cho AnchorPane */
+.anchor-pane {
+    -fx-background-color: #e0f2f1; /* Màu nền */
+}
+
+/* Áp dụng cho Label */
+.label {
+    -fx-font-size: 18px; /* Cỡ chữ */
+    -fx-text-fill: #333333; /* Màu chữ */
+}
+
+/* Áp dụng cho Button */
+.button {
+    -fx-font-size: 14px; /* Cỡ chữ */
+    -fx-text-fill: #ffffff; /* Màu chữ */
+    -fx-background-color: #4CAF50; /* Màu nền */
+    -fx-background-radius: 5px; /* Độ cong góc nút */
+}
+
+/* Khi rê chuột vào Button */
+.button:hover {
+    -fx-background-color: #45a049; /* Màu nền khi hover */
+}
+
+/* Khi nhấn vào Button */
+.button:pressed {
+    -fx-background-color: #357a38; /* Màu nền khi nhấn */
+}

@@ -1,0 +1,14 @@
+//  BUTTON CHI TIẾT
+.ButtonChiTiet {
+    -fx-background-color: #00C427;
+    -fx-background-radius: 10;
+}
+
+.ButtonChiTiet:hover {
+    -fx-background-color: #407F4C;
+
+}
+
+.ButtonChiTiet:pressed {
+    -fx-background-color: #00C427;
+}

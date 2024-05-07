@@ -1,0 +1,28 @@
+/* Áp dụng cho AnchorPane */
+.anchor-pane {
+    -fx-background-color: #f0f0f0; /* Màu nền */
+}
+
+/* Áp dụng cho ImageView */
+#imageView {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0); /* Hiệu ứng drop shadow */
+}
+
+/* Áp dụng cho Button */
+.button {
+    -fx-font-size: 14px; /* Cỡ chữ */
+    -fx-text-fill: #ffffff; /* Màu chữ */
+    -fx-background-color: #4CAF50; /* Màu nền */
+    -fx-background-radius: 5px; /* Độ cong góc nút */
+    -fx-pref-width: 100px; /* Chiều rộng ưu tiên */
+}
+
+/* Khi rê chuột vào Button */
+.button:hover {
+    -fx-background-color: #45a049; /* Màu nền khi hover */
+}
+
+/* Khi nhấn vào Button */
+.button:pressed {
+    -fx-background-color: #357a38; /* Màu nền khi nhấn */
+}
