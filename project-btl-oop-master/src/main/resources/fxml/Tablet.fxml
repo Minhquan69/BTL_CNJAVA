@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pj.Controller.TabletController">
+    <content>
+        <VBox prefHeight="700.0" prefWidth="1200.0" styleClass="background3" stylesheets="@../css/quanAo.css">
+            <children>
+                <AnchorPane minHeight="200.0" prefHeight="200.0" prefWidth="1200.0" styleClass="background1" stylesheets="@../css/quanAo.css" VBox.vgrow="ALWAYS">
+                    <children>
+                        <AnchorPane layoutX="36.0" layoutY="-30.0" prefHeight="122.0" prefWidth="191.0" styleClass="tieude" stylesheets="@../css/quanAo.css">
+                            <children>
+                                <Label alignment="CENTER" layoutX="25.0" layoutY="42.0" prefHeight="54.0" prefWidth="148.0" text="Tablet">
+                                    <font>
+                                        <Font name="System Bold" size="36.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </AnchorPane>
+                        <TextField fx:id="timKiemField" focusTraversable="false" layoutX="373.0" layoutY="89.0" prefHeight="33.0" prefWidth="350.0" promptText="Bạn cần tìm gì?" styleClass="search" stylesheets="@../css/quanAo.css">
+                            <font>
+                                <Font name="System Bold" size="12.0" />
+                            </font></TextField>
+                        <Button fx:id="timKiemButton" layoutX="746.0" layoutY="91.0" mnemonicParsing="false" onAction="#onButtonTimKiem" styleClass="buttonSearch" stylesheets="@../css/quanAo.css" text="Tìm kiếm" />
+                        <Button fx:id="quayLaiButton" layoutX="1082.0" layoutY="22.0" mnemonicParsing="false" onAction="#onButtonQuayLai" prefHeight="47.0" prefWidth="78.0" styleClass="buttonQL" stylesheets="@../css/quanAo.css" text="Quay lại">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Button>
+                  <Button layoutX="824.0" layoutY="91.0" mnemonicParsing="false" onAction="#pauseMusic" styleClass="buttonQL" text="Dừng" />
+                  <Button layoutX="880.0" layoutY="91.0" mnemonicParsing="false" onAction="#resumeMusic" styleClass="buttonQL" text="Tiếp tục" />
+                  <Button layoutX="955.0" layoutY="91.0" mnemonicParsing="false" onAction="#stopMusic" styleClass="buttonSearch" text="Tắt nhạc" />
+                  <Button layoutX="1023.0" layoutY="91.0" mnemonicParsing="false" onAction="#startMusic" styleClass="buttonSearch" text="Bật nhạc" />
+                  <Label fx:id="labelGioHang" layoutX="638.0" layoutY="201.0" textFill="#e10808" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane prefHeight="385.0" prefWidth="1000.0" styleClass="NenHienThiSanPham" stylesheets="@../css/quanAo.css" VBox.vgrow="ALWAYS">
+                    <VBox.margin>
+                        <Insets left="100.0" right="100.0" top="50.0" />
+                    </VBox.margin>
+                    <children>
+                        <GridPane fx:id="gridPane" layoutX="47.0" layoutY="14.0" prefHeight="30.0" prefWidth="0.0" AnchorPane.leftAnchor="25.0">
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                        </GridPane>
+                    </children>
+                </AnchorPane>
+            </children>
+        </VBox>
+    </content>
+</ScrollPane>
