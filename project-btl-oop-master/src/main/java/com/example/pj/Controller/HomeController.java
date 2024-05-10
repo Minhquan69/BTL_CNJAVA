@@ -364,4 +364,15 @@ public class HomeController extends Thread implements Initializable {
         }
     }
 
+    public  void daThemGH() {
+        if (labelGioHang != null) {
+            labelGioHang.setText("Sản phẩm đã được thêm trước đó!");
+            labelGioHang.setVisible(true);
+            // Tạo một Timeline để ẩn label sau 2 giây
+            Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2), e -> labelGioHang.setVisible(false)));
+            timeline.play();
+        } else {
+            System.out.println("labelGioHang is null. Cannot update label.");
+        }
+    }
 }
