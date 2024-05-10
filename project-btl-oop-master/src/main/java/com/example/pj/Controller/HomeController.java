@@ -172,7 +172,7 @@ public class HomeController extends Thread implements Initializable {
                 GridPane.setMargin(anchorPane, new Insets(10));
             }
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("Lỗi RunTimeException!");
         }
 
 
@@ -348,7 +348,7 @@ public class HomeController extends Thread implements Initializable {
                 clip.loop(Clip.LOOP_CONTINUOUSLY);
                 clip.start();
             } catch (Exception ex) {
-                ex.printStackTrace();
+                System.out.println("Lỗi audio");
             }
         }
 

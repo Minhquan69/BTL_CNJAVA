@@ -8,6 +8,10 @@
     -fx-font-size: 16px; /* Kích thước font */
     -fx-text-fill: #333; /* Màu chữ */
 }
+.labelform{
+  -fx-font-size: 24px;
+   -fx-font-weight: bold;
+}
 
 /* Định dạng trường văn bản */
 .text-field {

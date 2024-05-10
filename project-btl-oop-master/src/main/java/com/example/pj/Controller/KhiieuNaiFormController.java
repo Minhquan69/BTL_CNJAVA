@@ -73,7 +73,8 @@ public class KhiieuNaiFormController {
             statement.setString(5, thacMac);
             statement.setString(6, selectedFile != null ? selectedFile.getAbsolutePath() : null);
 
-            int rowsInserted = statement.executeUpdate();
+            int rowsInserted = statement.executeUpdate();// số hàng ảnh hưởng
+
             if (rowsInserted > 0) {
                 // Gửi thành công
                 showSuccessDialog();
@@ -82,7 +83,7 @@ public class KhiieuNaiFormController {
                 showErrorDialog();
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+
             // Xử lý lỗi kết nối hoặc truy vấn cơ sở dữ liệu
             showErrorDialog();
         }

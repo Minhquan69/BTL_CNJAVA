@@ -14,8 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane  fx:controller="com.example.pj.Controller.KhiieuNaiFormController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="758.0" prefWidth="1033.0" styleClass="background1" stylesheets="@../css/gioHang.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="758.0" prefWidth="1033.0" styleClass="background1" stylesheets="@../css/gioHang.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pj.Controller.KhiieuNaiFormController">
    <top>
       <AnchorPane prefHeight="60.0" prefWidth="1034.0" styleClass="background3" BorderPane.alignment="CENTER">
          <children>
@@ -50,14 +49,17 @@
                      <children>
                         <VBox alignment="CENTER" layoutX="210.0" prefHeight="661.0" prefWidth="607.0" spacing="10.0" styleClass="vbox" stylesheets="@../css/form.css">
                            <children>
-                              <Label stylesheets="@../css/form.css" text="Form Khiếu nại" />
+                              <Label prefHeight="35.0" prefWidth="171.0" styleClass="labelform" stylesheets="@../css/form.css" text="Form Khiếu nại" textAlignment="JUSTIFY" textFill="#383636">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font></Label>
                               <Label stylesheets="@../css/form.css" text="Họ và tên" />
                               <TextField fx:id="txtHoTen" styleClass="text-field" stylesheets="@../css/form.css" />
                               <Label stylesheets="@../css/form.css" text="Nội dung khiếu nại" />
                               <TextArea fx:id="txtNoiDung" styleClass="text-area" stylesheets="@../css/form.css" />
                               <Label stylesheets="@../css/form.css" text="Chọn file đính kèm" />
                               <Button onAction="#selectFile" style="-fx-background-color: green;" stylesheets="@../css/form.css" text="Chọn file" />
-                              <Label stylesheets="@../css/form.css" text="ID Đơn hàng" />
+                              <Label stylesheets="@../css/form.css" text="Số hóa đơn" />
                               <TextField fx:id="txtDonHangID" styleClass="text-field" stylesheets="@../css/form.css" />
                               <Label stylesheets="@../css/form.css" text="Email" />
                               <TextField fx:id="txtEmail" styleClass="text-field" stylesheets="@../css/form.css" />
