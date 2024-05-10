@@ -91,6 +91,7 @@ public class ItemController {
                     return;
                 } else {
                 }
+                return;
             }
         }
         itemsGioHang.add(item);
