@@ -37,7 +37,7 @@ public class ItemController {
     public void setData(Item item) {
         this.item = item;
 
-        item.setCodeItem("ABC123");
+        item.setCodeItem(item.getCodeItem());
         //THIẾT LẬP ẢNH
         Image image;
         image = new Image(getClass().getResourceAsStream(item.getItemImage()));

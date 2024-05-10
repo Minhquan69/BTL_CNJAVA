@@ -31,6 +31,9 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.ResourceBundle;
+import com.example.pj.Controller.LoginController;
+
+import static com.example.pj.Controller.LoginController.getUser_Name;
 
 public class HomeController extends Thread implements Initializable {
 
@@ -83,7 +86,6 @@ public class HomeController extends Thread implements Initializable {
     private Button btnTatNhac;
     @FXML
     private  Label labelGioHang;
-
 
     //TẠO MỘT DANH SÁCH CÁC SẢN PHẨM ĐƯỢC THÊM VÀO GIỎ HÀNG
     public static List<Item> itemsGioHang = new ArrayList<>();
@@ -143,7 +145,7 @@ public class HomeController extends Thread implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
 
-
+        nameUser.setText(getUser_Name());
 
         Thread thread = new Thread(this);
         thread.start();

@@ -35,12 +35,10 @@ public class LoginController {
 
     @FXML
     private Label text;
+    public static String user_Name;
 
-    public static  String loggedInUsername; // Biến để lưu trữ tên người dùng đã đăng nhập
-
-    // Setter method cho tên người dùng đã đăng nhập
-    public void setLoggedInUsername(String username) {
-        this.loggedInUsername = username;
+    public static String getUser_Name() {
+        return user_Name;
     }
 
     // XỬ LÝ SỰ KIỆN ĐĂNG KÍ
@@ -64,7 +62,7 @@ public class LoginController {
     //XỬ LÝ SỰ KIỆN ĐĂNG NHẬP
     public void onLogin() throws Exception {
         // Kết nối cơ sở dữ liệu
-        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/csdl", "root", "17062004")) {
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/btl", "root", "17062004")) {
             // Truy vấn kiểm tra thông tin đăng nhập
             String query = "SELECT * FROM taiKhoan WHERE userName = ? AND userPassword = ?";
             try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -72,8 +70,7 @@ public class LoginController {
                 preparedStatement.setString(2, userPassword.getText());
                 try (ResultSet resultSet = preparedStatement.executeQuery()) {
                     if (resultSet.next()) { // Nếu thông tin đăng nhập chính xác
-                        String username = resultSet.getString("userName"); // Lấy tên người dùng từ cơ sở dữ liệu
-                        setLoggedInUsername(username); // Lưu tên người dùng đã đăng nhập
+                        user_Name = userName.getText();
 
                         // Chuyển sang màn hình tiếp theo (ví dụ: màn hình chính)
                         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/home.fxml"));
