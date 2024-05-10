@@ -233,7 +233,6 @@ public class HomeController extends Thread implements Initializable {
         stage.show();
     }
 
-    // XU LY SỤ KIEN TIM KIEM THEO TEN
 
     // Xử lý sự kiện tìm kiếm theo tên sản phẩm
     @FXML
