@@ -71,7 +71,26 @@ public class ItemController {
 
         for (Item a : itemsGioHang) {
             if (a.getItemName().equals(item.getItemName())) {
-                return;
+                if (homeController != null) {
+                    homeController.hamThemGH();
+                    return;
+                } else {
+                }
+                if (phoneController != null) {
+                    phoneController.hamThemGH();
+                    return;
+                } else {
+                }
+                if (tabletController != null) {
+                    tabletController.hamThemGH();
+                    return;
+                } else {
+                }
+                if (phukienController != null) {
+                    phukienController.hamThemGH();
+                    return;
+                } else {
+                }
             }
         }
         itemsGioHang.add(item);
