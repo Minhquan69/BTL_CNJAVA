@@ -31,6 +31,7 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.ResourceBundle;
+
 import com.example.pj.Controller.LoginController;
 
 import static com.example.pj.Controller.LoginController.getUser_Name;
@@ -85,12 +86,12 @@ public class HomeController extends Thread implements Initializable {
     @FXML
     private Button btnTatNhac;
     @FXML
-    private  Label labelGioHang;
+    private Label labelGioHang;
 
     //TẠO MỘT DANH SÁCH CÁC SẢN PHẨM ĐƯỢC THÊM VÀO GIỎ HÀNG
     public static List<Item> itemsGioHang = new ArrayList<>();
     public static List<Item> itemAll = new ArrayList<>();
-
+    public static String search;
     public static final String FILE_PATHH = "C:\\Users\\fifah\\Documents\\Zalo Received Files\\btllll\\project-btl-oop-master\\src\\itemAll.txt";
     //PHƯƠNG THỨC TRẢ VỀ DANH SÁCH CHỨA CÁC ITEM
     private static final String FILE_PATH = "C:\\Users\\fifah\\Documents\\Zalo Received Files\\btllll\\project-btl-oop-master\\src\\itemsHome.txt";
@@ -98,7 +99,7 @@ public class HomeController extends Thread implements Initializable {
     private File musicFile = new File("C:\\Users\\fifah\\Documents\\Zalo Received Files\\btllll\\project-btl-oop-master\\src\\Baihat1-_mp3cut.net_.au");
     private boolean isRunning = true;
     private Clip clip;
-
+    public static List<Item> itemtk = new ArrayList<>();
 
     public List<Item> taoDS() {
         List<Item> ls = new ArrayList<>();
@@ -143,8 +144,6 @@ public class HomeController extends Thread implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-
         nameUser.setText(getUser_Name());
 
         Thread thread = new Thread(this);
@@ -174,8 +173,6 @@ public class HomeController extends Thread implements Initializable {
         } catch (IOException e) {
             System.out.println("Lỗi RunTimeException!");
         }
-
-
     }
 
     // SỰ KIỆN ẤN VÀO GIỎ HÀNG BUTTON
@@ -235,35 +232,44 @@ public class HomeController extends Thread implements Initializable {
 
 
     // Xử lý sự kiện tìm kiếm theo tên sản phẩm
-    @FXML
     public void onButtonTimKiem() throws IOException {
-        String searchText = timKiemField.getText().toLowerCase(); // Lấy giá trị từ trường tìm kiếm
-
+        clip.stop();
+        clip.close();
+        search = timKiemField.getText().toLowerCase().trim(); // Lấy giá trị từ trường tìm kiếm
+        System.out.println("Before clear, itemtk: " + itemtk.size());
+        itemtk.clear(); // Clear previous search results
+        System.out.println("After clear, itemtk: " + itemtk.size());
 
         for (var e : itemAll) {
-            if (e.getItemName().toLowerCase().trim().equals(searchText)) {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/item.fxml"));
-                AnchorPane anchorPane = fxmlLoader.load();
-                ItemController itemController = fxmlLoader.getController();
-                itemController.setData(e);
-
-                Stage stage = new Stage();
-                stage.initModality(Modality.APPLICATION_MODAL); // Đặt chế độ modal
-                stage.setResizable(false);
-                stage.setScene(new Scene(anchorPane)); // Sử dụng anchorPane đã load
-                stage.show();
-
-                return;
-
+            if (e.getItemName().toLowerCase().trim().startsWith(search)) {
+                itemtk.add(e);
             }
-
         }
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Thông báo");
-        alert.setHeaderText(null);
-        alert.setContentText("Không tìm thấy đồ yêu cầu!");
-        alert.showAndWait();
+        System.out.println("After search, itemtk: " + itemtk.size());
+
+        if (itemtk.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Thông báo");
+            alert.setHeaderText(null);
+            alert.setContentText("Không tìm thấy sản phẩm nào!");
+            alert.showAndWait();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Thông báo");
+            alert.setHeaderText(null);
+            alert.setContentText("Sản phẩm ở phía dưới!");
+            alert.showAndWait();
+        }
+        timKiemField.clear();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/hienthi.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage) hoaDonButton.getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
+
+
 
     @FXML
     //XỬ LÝ SỰ KIỆN BUTTON THOÁT
@@ -294,8 +300,6 @@ public class HomeController extends Thread implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-
-
 
 
     @Override
@@ -334,24 +338,24 @@ public class HomeController extends Thread implements Initializable {
         }
     }
 
-        public void startMusic() {
-            if (clip != null && clip.isOpen()) {
-                clip.stop();
-                clip.close();
-            }
-
-            try {
-                AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicFile);
-                clip = AudioSystem.getClip();
-                clip.open(audioInput);
-                clip.loop(Clip.LOOP_CONTINUOUSLY);
-                clip.start();
-            } catch (Exception ex) {
-                System.out.println("Lỗi audio");
-            }
+    public void startMusic() {
+        if (clip != null && clip.isOpen()) {
+            clip.stop();
+            clip.close();
         }
 
-    public  void hamThemGH() {
+        try {
+            AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicFile);
+            clip = AudioSystem.getClip();
+            clip.open(audioInput);
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
+            clip.start();
+        } catch (Exception ex) {
+            System.out.println("Lỗi audio");
+        }
+    }
+
+    public void hamThemGH() {
         if (labelGioHang != null) {
             labelGioHang.setText("Đã thêm vào giỏ hàng!");
             labelGioHang.setVisible(true);
@@ -363,7 +367,7 @@ public class HomeController extends Thread implements Initializable {
         }
     }
 
-    public  void daThemGH() {
+    public void daThemGH() {
         if (labelGioHang != null) {
             labelGioHang.setText("Sản phẩm đã được thêm trước đó!");
             labelGioHang.setVisible(true);

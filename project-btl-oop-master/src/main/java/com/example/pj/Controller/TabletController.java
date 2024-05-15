@@ -49,7 +49,8 @@ public class TabletController extends Thread implements Initializable {
     private File musicFile = new File("C:\\Users\\fifah\\Documents\\Zalo Received Files\\btllll\\project-btl-oop-master\\src\\Baihat4-_mp3cut.net_.au");
     private boolean isRunning = true;
     private Clip clip;
-    private static final String FILE_PATH="C:\\Users\\fifah\\Documents\\Zalo Received Files\\btllll\\project-btl-oop-master\\src\\itemTablet.txt";
+    private static final String FILE_PATH = "C:\\Users\\fifah\\Documents\\Zalo Received Files\\btllll\\project-btl-oop-master\\src\\itemTablet.txt";
+
     public List<Item> taoDS() {
         List<Item> ls = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(FILE_PATH))) {
@@ -74,8 +75,6 @@ public class TabletController extends Thread implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-
 
 
         Thread thread = new Thread(this);
@@ -104,14 +103,14 @@ public class TabletController extends Thread implements Initializable {
 
                 GridPane.setMargin(anchorPane, new Insets(10));
             }
-        } catch(IOException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
     }
 
     // XỬ LÝ SỰ KIỆN BUTTON QUAY LẠI
-    public void onButtonQuayLai() throws Exception{
+    public void onButtonQuayLai() throws Exception {
         clip.stop();
         clip.close();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/home.fxml"));
@@ -126,8 +125,8 @@ public class TabletController extends Thread implements Initializable {
         String searchText = timKiemField.getText().toLowerCase(); // Lấy giá trị từ trường tìm kiếm
 
 
-        for (var e : itemAll){
-            if (e.getItemName().toLowerCase().trim().equals(searchText)){
+        for (var e : itemAll) {
+            if (e.getItemName().toLowerCase().trim().equals(searchText)) {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/item.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
                 ItemController itemController = fxmlLoader.getController();
@@ -152,13 +151,9 @@ public class TabletController extends Thread implements Initializable {
     }
 
 
-
-
     @Override
     public void run() {
         try {
-
-
             clip = AudioSystem.getClip();
             AudioInputStream inputStream = AudioSystem.getAudioInputStream(musicFile);
             clip.open(inputStream);
@@ -166,8 +161,7 @@ public class TabletController extends Thread implements Initializable {
             clip.start();
 
 
-
-        } catch (IOException | UnsupportedAudioFileException | LineUnavailableException  e) {
+        } catch (IOException | UnsupportedAudioFileException | LineUnavailableException e) {
             e.printStackTrace();
         }
     }
@@ -212,7 +206,7 @@ public class TabletController extends Thread implements Initializable {
     }
 
 
-    public  void hamThemGH() {
+    public void hamThemGH() {
         if (labelGioHang != null) {
             labelGioHang.setText("Đã thêm vào giỏ hàng!");
             labelGioHang.setVisible(true);
@@ -224,7 +218,8 @@ public class TabletController extends Thread implements Initializable {
             System.out.println("labelGioHang is null. Cannot update label.");
         }
     }
-    public  void daThemGH() {
+
+    public void daThemGH() {
         if (labelGioHang != null) {
             labelGioHang.setText("Sản phẩm đã được thêm trước đó!");
             labelGioHang.setVisible(true);
