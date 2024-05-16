@@ -25,9 +25,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import static com.example.pj.Controller.HomeController.itemAll;
 
 public class PhukienController extends Thread implements Initializable {
+    public static final String FILE_PATHH = "project-btl-oop-master\\src\\itemAll.txt";
 
     @FXML
     private GridPane gridPane;
@@ -45,13 +45,15 @@ public class PhukienController extends Thread implements Initializable {
     private TextField timKiemField;
     @FXML
     private Label labelGioHang;
+    public static List<Item> itemtkPhuKien = new ArrayList<>();
+    private List<Item> itemAll = new ArrayList<>(taoToanBoDS());
 
-
-    private File musicFile = new File("C:\\Users\\fifah\\Documents\\Zalo Received Files\\btllll\\project-btl-oop-master\\src\\Baihat3-_mp3cut.net_.au");
+public static String searchhh;
+    private File musicFile = new File("project-btl-oop-master\\src\\Baihat3-_mp3cut.net_.au");
     private boolean isRunning = true;
     private Clip clip;
     //PHƯƠNG THỨC TRẢ VỀ DANH SÁCH CHỨA CÁC ITEM
-    private static final String FILE_PATH="C:\\Users\\fifah\\Documents\\Zalo Received Files\\btllll\\project-btl-oop-master\\src\\itemPhuKien.txt";
+    private static final String FILE_PATH="project-btl-oop-master\\src\\itemPhuKien.txt";
     public List<Item> taoDS() {
         List<Item> ls = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(FILE_PATH))) {
@@ -70,7 +72,24 @@ public class PhukienController extends Thread implements Initializable {
         }
         return ls;
     }
-
+    public List<Item> taoToanBoDS() {
+        List<Item> lss = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(FILE_PATHH))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split(",");
+                String imagePath = parts[0];
+                String name = parts[1];
+                int price = Integer.parseInt(parts[2].trim());
+                String ratingImagePath = parts[3];
+                String id = parts[4];
+                lss.add(new Item(imagePath, name, price, ratingImagePath, id));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return lss;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -121,34 +140,37 @@ public class PhukienController extends Thread implements Initializable {
         stage.show();
     }
 
-    @FXML
     public void onButtonTimKiem() throws IOException {
-        String searchText = timKiemField.getText().toLowerCase(); // Lấy giá trị từ trường tìm kiếm
-
-
-        for (var e : itemAll){
-            if (e.getItemName().toLowerCase().trim().equals(searchText)){
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/item.fxml"));
-                AnchorPane anchorPane = fxmlLoader.load();
-                ItemController itemController = fxmlLoader.getController();
-                itemController.setData(e);
-
-                Stage stage = new Stage();
-                stage.initModality(Modality.APPLICATION_MODAL); // Đặt chế độ modal
-                stage.setResizable(false);
-                stage.setScene(new Scene(anchorPane)); // Sử dụng anchorPane đã load
-                stage.show();
-
-                return;
-
+        // Dừng và đóng âm thanh
+        clip.stop();
+        clip.close();
+        // Lấy từ khóa tìm kiếm từ trường nhập
+       searchhh = timKiemField.getText().toLowerCase().trim();
+        // Xóa các kết quả tìm kiếm trước đó
+        itemtkPhuKien.clear();
+        // Tìm kiếm sản phẩm và cập nhật danh sách kết quả tìm kiếm
+        for (var e : itemAll) {
+            if (e.getItemName().toLowerCase().trim().startsWith(searchhh)) {
+                itemtkPhuKien.add(e);
             }
-
         }
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Thông báo");
-        alert.setHeaderText(null);
-        alert.setContentText("Không tìm thấy đồ yêu cầu!");
-        alert.showAndWait();
+
+        // Hiển thị cảnh báo nếu không tìm thấy sản phẩm
+        if (itemtkPhuKien.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Thông báo");
+            alert.setHeaderText(null);
+            alert.setContentText("Không tìm thấy sản phẩm nào!");
+            alert.showAndWait();
+        } else {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/hienthi.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = (Stage) quayLaiButton.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        }
+        // Chuyển đến giao diện hiển thị kết quả tìm kiếm
+
     }
 
 

@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
@@ -90,13 +91,14 @@ public class HomeController extends Thread implements Initializable {
 
     //TẠO MỘT DANH SÁCH CÁC SẢN PHẨM ĐƯỢC THÊM VÀO GIỎ HÀNG
     public static List<Item> itemsGioHang = new ArrayList<>();
-    public static List<Item> itemAll = new ArrayList<>();
+    private List<Item> itemAll = new ArrayList<>(taoToanBoDS());
     public static String search;
-    public static final String FILE_PATHH = "C:\\Users\\fifah\\Documents\\Zalo Received Files\\btllll\\project-btl-oop-master\\src\\itemAll.txt";
+    public static final String FILE_PATHH = "project-btl-oop-master\\src\\itemAll.txt";
     //PHƯƠNG THỨC TRẢ VỀ DANH SÁCH CHỨA CÁC ITEM
-    private static final String FILE_PATH = "C:\\Users\\fifah\\Documents\\Zalo Received Files\\btllll\\project-btl-oop-master\\src\\itemsHome.txt";
+    private static final String FILE_PATH = "project-btl-oop-master\\src\\itemsHome.txt";
 
-    private File musicFile = new File("C:\\Users\\fifah\\Documents\\Zalo Received Files\\btllll\\project-btl-oop-master\\src\\Baihat1-_mp3cut.net_.au");
+
+    private File musicFile = new File("project-btl-oop-master\\src\\Baihat1-_mp3cut.net_.au");
     private boolean isRunning = true;
     private Clip clip;
     public static List<Item> itemtk = new ArrayList<>();
@@ -149,7 +151,6 @@ public class HomeController extends Thread implements Initializable {
         Thread thread = new Thread(this);
         thread.start();
 
-        itemAll.addAll(taoToanBoDS());
 
         List<Item> itemsGoiY = new ArrayList<>(taoDS());
 
@@ -190,8 +191,10 @@ public class HomeController extends Thread implements Initializable {
     public void onPhone() throws Exception {
         clip.stop();
         clip.close();
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Phone.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
+        Parent root = fxmlLoader.load(); // Load the FXML file
+        Scene scene = new Scene(root);
         Stage stage = (Stage) PhoneButton.getScene().getWindow();
         stage.setScene(scene);
         stage.show();
@@ -233,20 +236,21 @@ public class HomeController extends Thread implements Initializable {
 
     // Xử lý sự kiện tìm kiếm theo tên sản phẩm
     public void onButtonTimKiem() throws IOException {
+        // Dừng và đóng âm thanh
         clip.stop();
         clip.close();
-        search = timKiemField.getText().toLowerCase().trim(); // Lấy giá trị từ trường tìm kiếm
-        System.out.println("Before clear, itemtk: " + itemtk.size());
-        itemtk.clear(); // Clear previous search results
-        System.out.println("After clear, itemtk: " + itemtk.size());
-
+        // Lấy từ khóa tìm kiếm từ trường nhập
+        search = timKiemField.getText().toLowerCase().trim();
+        // Xóa các kết quả tìm kiếm trước đó
+        itemtk.clear();
+        // Tìm kiếm sản phẩm và cập nhật danh sách kết quả tìm kiếm
         for (var e : itemAll) {
             if (e.getItemName().toLowerCase().trim().startsWith(search)) {
                 itemtk.add(e);
             }
         }
-        System.out.println("After search, itemtk: " + itemtk.size());
 
+        // Hiển thị cảnh báo nếu không tìm thấy sản phẩm
         if (itemtk.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Thông báo");
@@ -254,21 +258,15 @@ public class HomeController extends Thread implements Initializable {
             alert.setContentText("Không tìm thấy sản phẩm nào!");
             alert.showAndWait();
         } else {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Thông báo");
-            alert.setHeaderText(null);
-            alert.setContentText("Sản phẩm ở phía dưới!");
-            alert.showAndWait();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/hienthi.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = (Stage) gioHangButton.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
         }
-        timKiemField.clear();
+        // Chuyển đến giao diện hiển thị kết quả tìm kiếm
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/hienthi.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        Stage stage = (Stage) hoaDonButton.getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
     }
-
 
 
     @FXML
