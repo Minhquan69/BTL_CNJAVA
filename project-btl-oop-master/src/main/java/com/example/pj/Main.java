@@ -19,7 +19,7 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/fxml/login.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setResizable(false);
-        stage.setTitle("App");
+        stage.setTitle("App Mua Hàng");
         stage.setScene(scene);
         stage.show();
     }
