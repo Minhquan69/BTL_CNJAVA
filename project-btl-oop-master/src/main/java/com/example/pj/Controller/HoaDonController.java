@@ -88,7 +88,7 @@ public class HoaDonController implements Initializable {
                 rowsInserted = statement.executeUpdate();
 
             } catch (SQLException e) {
-                System.out.println("Lỗi xuất hóa đơn");
+                
             }
 
 
