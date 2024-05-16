@@ -26,7 +26,7 @@ import static com.example.pj.Controller.TabletController.itemtkTablet;
 import static com.example.pj.Controller.TabletController.searchhhh;
 
 
-public class hienthi implements Initializable {
+public class HienThiController implements Initializable {
     @FXML
     private GridPane gridPane;
     @FXML
