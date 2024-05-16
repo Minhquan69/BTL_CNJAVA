@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
@@ -31,6 +32,10 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import com.example.pj.Controller.LoginController;
+
+import static com.example.pj.Controller.LoginController.getUser_Name;
 
 public class HomeController extends Thread implements Initializable {
 
@@ -82,21 +87,21 @@ public class HomeController extends Thread implements Initializable {
     @FXML
     private Button btnTatNhac;
     @FXML
-    private  Label labelGioHang;
-
+    private Label labelGioHang;
 
     //TẠO MỘT DANH SÁCH CÁC SẢN PHẨM ĐƯỢC THÊM VÀO GIỎ HÀNG
     public static List<Item> itemsGioHang = new ArrayList<>();
-    public static List<Item> itemAll = new ArrayList<>();
-
+    private List<Item> itemAll = new ArrayList<>(taoToanBoDS());
+    public static String search;
     public static final String FILE_PATHH = "project-btl-oop-master\\src\\itemAll.txt";
     //PHƯƠNG THỨC TRẢ VỀ DANH SÁCH CHỨA CÁC ITEM
     private static final String FILE_PATH = "project-btl-oop-master\\src\\itemsHome.txt";
 
+
     private File musicFile = new File("project-btl-oop-master\\src\\Baihat1-_mp3cut.net_.au");
     private boolean isRunning = true;
     private Clip clip;
-
+    public static List<Item> itemtk = new ArrayList<>();
 
     public List<Item> taoDS() {
         List<Item> ls = new ArrayList<>();
@@ -141,14 +146,11 @@ public class HomeController extends Thread implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-
-
+        nameUser.setText(getUser_Name());
 
         Thread thread = new Thread(this);
         thread.start();
 
-        itemAll.addAll(taoToanBoDS());
 
         List<Item> itemsGoiY = new ArrayList<>(taoDS());
 
@@ -170,10 +172,8 @@ public class HomeController extends Thread implements Initializable {
                 GridPane.setMargin(anchorPane, new Insets(10));
             }
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("Lỗi RunTimeException!");
         }
-
-
     }
 
     // SỰ KIỆN ẤN VÀO GIỎ HÀNG BUTTON
@@ -191,8 +191,10 @@ public class HomeController extends Thread implements Initializable {
     public void onPhone() throws Exception {
         clip.stop();
         clip.close();
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Phone.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
+        Parent root = fxmlLoader.load(); // Load the FXML file
+        Scene scene = new Scene(root);
         Stage stage = (Stage) PhoneButton.getScene().getWindow();
         stage.setScene(scene);
         stage.show();
@@ -231,38 +233,41 @@ public class HomeController extends Thread implements Initializable {
         stage.show();
     }
 
-    // XU LY SỤ KIEN TIM KIEM THEO TEN
 
     // Xử lý sự kiện tìm kiếm theo tên sản phẩm
-    @FXML
     public void onButtonTimKiem() throws IOException {
-        String searchText = timKiemField.getText().toLowerCase(); // Lấy giá trị từ trường tìm kiếm
-
-
+        // Dừng và đóng âm thanh
+        clip.stop();
+        clip.close();
+        // Lấy từ khóa tìm kiếm từ trường nhập
+        search = timKiemField.getText().toLowerCase().trim();
+        // Xóa các kết quả tìm kiếm trước đó
+        itemtk.clear();
+        // Tìm kiếm sản phẩm và cập nhật danh sách kết quả tìm kiếm
         for (var e : itemAll) {
-            if (e.getItemName().toLowerCase().trim().equals(searchText)) {
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/item.fxml"));
-                AnchorPane anchorPane = fxmlLoader.load();
-                ItemController itemController = fxmlLoader.getController();
-                itemController.setData(e);
-
-                Stage stage = new Stage();
-                stage.initModality(Modality.APPLICATION_MODAL); // Đặt chế độ modal
-                stage.setResizable(false);
-                stage.setScene(new Scene(anchorPane)); // Sử dụng anchorPane đã load
-                stage.show();
-
-                return;
-
+            if (e.getItemName().toLowerCase().trim().startsWith(search)) {
+                itemtk.add(e);
             }
-
         }
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Thông báo");
-        alert.setHeaderText(null);
-        alert.setContentText("Không tìm thấy đồ yêu cầu!");
-        alert.showAndWait();
+
+        // Hiển thị cảnh báo nếu không tìm thấy sản phẩm
+        if (itemtk.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Thông báo");
+            alert.setHeaderText(null);
+            alert.setContentText("Không tìm thấy sản phẩm nào!");
+            alert.showAndWait();
+        } else {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/hienthi.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = (Stage) gioHangButton.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        }
+        // Chuyển đến giao diện hiển thị kết quả tìm kiếm
+
     }
+
 
     @FXML
     //XỬ LÝ SỰ KIỆN BUTTON THOÁT
@@ -293,8 +298,6 @@ public class HomeController extends Thread implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-
-
 
 
     @Override
@@ -333,24 +336,24 @@ public class HomeController extends Thread implements Initializable {
         }
     }
 
-        public void startMusic() {
-            if (clip != null && clip.isOpen()) {
-                clip.stop();
-                clip.close();
-            }
-
-            try {
-                AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicFile);
-                clip = AudioSystem.getClip();
-                clip.open(audioInput);
-                clip.loop(Clip.LOOP_CONTINUOUSLY);
-                clip.start();
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
+    public void startMusic() {
+        if (clip != null && clip.isOpen()) {
+            clip.stop();
+            clip.close();
         }
 
-    public  void hamThemGH() {
+        try {
+            AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicFile);
+            clip = AudioSystem.getClip();
+            clip.open(audioInput);
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
+            clip.start();
+        } catch (Exception ex) {
+            System.out.println("Lỗi audio");
+        }
+    }
+
+    public void hamThemGH() {
         if (labelGioHang != null) {
             labelGioHang.setText("Đã thêm vào giỏ hàng!");
             labelGioHang.setVisible(true);
@@ -362,4 +365,15 @@ public class HomeController extends Thread implements Initializable {
         }
     }
 
+    public void daThemGH() {
+        if (labelGioHang != null) {
+            labelGioHang.setText("Sản phẩm đã được thêm trước đó!");
+            labelGioHang.setVisible(true);
+            // Tạo một Timeline để ẩn label sau 2 giây
+            Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(2), e -> labelGioHang.setVisible(false)));
+            timeline.play();
+        } else {
+            System.out.println("labelGioHang is null. Cannot update label.");
+        }
+    }
 }

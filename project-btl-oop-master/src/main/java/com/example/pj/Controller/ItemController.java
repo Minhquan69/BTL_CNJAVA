@@ -37,7 +37,7 @@ public class ItemController {
     public void setData(Item item) {
         this.item = item;
 
-        item.setCodeItem("ABC123");
+        item.setCodeItem(item.getCodeItem());
         //THIẾT LẬP ẢNH
         Image image;
         image = new Image(getClass().getResourceAsStream(item.getItemImage()));
@@ -71,6 +71,26 @@ public class ItemController {
 
         for (Item a : itemsGioHang) {
             if (a.getItemName().equals(item.getItemName())) {
+                if (homeController != null) {
+                    homeController.daThemGH();
+                    return;
+                } else {
+                }
+                if (phoneController != null) {
+                    phoneController.daThemGH();
+                    return;
+                } else {
+                }
+                if (tabletController != null) {
+                    tabletController.daThemGH();
+                    return;
+                } else {
+                }
+                if (phukienController != null) {
+                    phukienController.daThemGH();
+                    return;
+                } else {
+                }
                 return;
             }
         }

@@ -26,7 +26,6 @@ public class RegisterController {
 
     @FXML
     private PasswordField userPassword;
-
     @FXML
     private Label checkUser;
     private int check = 0;
@@ -48,7 +47,7 @@ public class RegisterController {
     public void onDangKy() {
         // KẾT NỐI VỚI CƠ SỞ DỮ LIỆU
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/csdl", "root", "daomquan27022004");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/btl", "root", "daomquan27022004");
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM taiKhoan WHERE  (SDT = ?) OR (userName = ?)");
             preparedStatement.setString(1, sdt.getText());
             preparedStatement.setString(2, userName.getText());
@@ -62,19 +61,19 @@ public class RegisterController {
 
             // Kiểm tra số điện thoại theo regex
             if (!sdt.getText().matches(phoneRegex)) {
-                checkUser.setText("Số điện thoại phải gồm 10 chữ số và bắt đầu bằng 0");
+                checkUser.setText("Số điện thoại phải gồm 10 chữ số\n và bắt đầu bằng 0");
                 return;
             }
 
             // Kiểm tra tên người dùng theo regex
             if (!userName.getText().matches(TaiKhoanRegex)) {
-                checkUser.setText("Tên người dùng phải có ít nhất 5 ký tự gồm chữ cái thường, hoa, và số");
+                checkUser.setText("Tên người dùng phải có ít nhất 5 ký tự \n gồm chữ cái thường, hoa, và số");
                 return;
             }
 
             // Kiểm tra mật khẩu không trống và trùng khớp
             if (userPassword.getText().isEmpty() || !userPassword.getText().matches(PassWordRegex) || !userPassword.getText().equals(confirmUserPassword.getText())) {
-                checkUser.setText("Mật khẩu không được để trống và phải khớp và đúng định dạng");
+                checkUser.setText("Mật khẩu không được để trống \n và phải khớp và đúng định dạng");
                 return;
             }
 

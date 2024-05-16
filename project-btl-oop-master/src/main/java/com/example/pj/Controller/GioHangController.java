@@ -55,16 +55,13 @@ public class GioHangController implements Initializable {
     private List<Item> ds = itemsGioHang;
     private int tong = 0;
     public static List<HoaDon> dsHoaDon = new ArrayList<>();
-
     List<Item> itemsGioHangTemp;
 
-    private URL url;
-    private ResourceBundle resourceBundle;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        this.url = url;
-        this.resourceBundle = resourceBundle;
+
 
         try {
             for (Item item : ds) {

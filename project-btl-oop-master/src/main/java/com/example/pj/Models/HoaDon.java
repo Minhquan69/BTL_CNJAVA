@@ -2,13 +2,16 @@ package com.example.pj.Models;
 
 import java.util.List;
 
+import static com.example.pj.Controller.HoaDonController.nextId;
+
 public class HoaDon {
     private int id;
     private List<Item> ds;
 
     private int tien;
 
-    private static int nextId = 1;
+    private static int nextId = nextId();
+
 
     public HoaDon(List<Item> ds) {
         this.id = nextId;
@@ -50,6 +53,6 @@ public class HoaDon {
     }
 
     public static void setNextId(int nextId) {
-        HoaDon.nextId = nextId;
+        com.example.pj.Models.HoaDon.nextId = nextId;
     }
 }

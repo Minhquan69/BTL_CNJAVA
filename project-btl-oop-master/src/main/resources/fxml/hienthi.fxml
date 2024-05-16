@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pj.Controller.hienthi">
+    <content>
+        <VBox prefHeight="700.0" prefWidth="1200.0" styleClass="background3" stylesheets="@../css/quanAo.css">
+            <children>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="quayLaiButton" layoutX="1057.0" layoutY="30.0" mnemonicParsing="false" onAction="#onButtonQuayLai" prefHeight="54.0" prefWidth="98.0" styleClass="buttonQL" stylesheets="@../css/quanAo.css" text="Quay Lại">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="530.0" layoutY="93.0" prefHeight="46.0" prefWidth="205.0" text="Sản phẩm bạn tìm kiếm">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+                <AnchorPane prefHeight="570.0" prefWidth="1000.0" styleClass="NenHienThiSanPham" stylesheets="@../css/quanAo.css" VBox.vgrow="ALWAYS">
+                    <VBox.margin>
+                        <Insets left="100.0" right="100.0" top="50.0" />
+                    </VBox.margin>
+                    <children>
+                        <GridPane fx:id="gridPane" layoutX="47.0" layoutY="14.0" prefHeight="30.0" prefWidth="0.0" AnchorPane.leftAnchor="25.0">
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                        </GridPane>
+                    </children>
+                </AnchorPane>
+            </children>
+        </VBox>
+    </content>
+</ScrollPane>
