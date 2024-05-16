@@ -67,13 +67,13 @@ public class RegisterController {
 
             // Kiểm tra tên người dùng theo regex
             if (!userName.getText().matches(TaiKhoanRegex)) {
-                checkUser.setText("Tên người dùng phải có ít nhất 5 ký tự \n gồm chữ cái thường, hoa, và số");
+                checkUser.setText("Tên người dùng phải có ít nhất 5 kt \n gồm chữ cái thường, hoa, và số");
                 return;
             }
 
             // Kiểm tra mật khẩu không trống và trùng khớp
             if (userPassword.getText().isEmpty() || !userPassword.getText().matches(PassWordRegex) || !userPassword.getText().equals(confirmUserPassword.getText())) {
-                checkUser.setText("Mật khẩu không được để trống \n và phải khớp và đúng định dạng");
+                checkUser.setText("Mật khẩu không được để trống \n và phải khớp và đúng định dạng\n 8 kt gồm: 1 hoa, 1 thường và 1 kt đặc biệt.");
                 return;
             }
 
